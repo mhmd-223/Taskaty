@@ -20,7 +20,7 @@ public interface TaskRepository {
 
     List<Task> getTasksByListID(Long listId) throws RuntimeException;
 
-    List<Task> getTasksByUserID(Long userId) throws RuntimeException;
+    List<Task> getTasksByUserID(String userId) throws RuntimeException;
 
     boolean existsById(Long id) throws RuntimeException;
 
