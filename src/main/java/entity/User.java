@@ -1,10 +1,11 @@
 package entity;
 
 public class User {
-    private String username, password;
+    private String username, name, password;
 
-    public User(String username, String password) {
+    public User(String username, String name, String password) {
         this.username = username;
+        this.name = name;
         this.password = password;
     }
 
@@ -22,5 +23,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
