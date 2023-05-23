@@ -14,7 +14,7 @@ public class TaskListMapper implements TaskListMapperInterface {
     @Override
     public TaskList getList(Long id) {
         Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from List where Id=" + id+";";
+        String query = "Select * from List where Id=" + id + ";";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);

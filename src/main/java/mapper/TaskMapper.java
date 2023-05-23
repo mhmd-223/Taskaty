@@ -2,6 +2,7 @@ package mapper;
 
 import entity.Task;
 import repository.MySQLConfigure;
+import utilities.QueryBuilder;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,12 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskMapper implements TaskMapperInterface {
-    private Task task = new Task();
+    private final Task task = new Task();
 
     @Override
     public Task getTask(long id) {
         Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from Task where Id=" + id;
+        String query =
+                new QueryBuilder()
+                        .select("*")
+                        .from("task")
+                        .where("id=" + id)
+                        .build();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -50,7 +56,7 @@ public class TaskMapper implements TaskMapperInterface {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                task.setId(resultSet.getLong("Id"));
+                task.setId(resultSet.getLong("id"));
                 task.setCompleted(resultSet.getBoolean("Completed"));
                 task.setDescription(resultSet.getString("Description"));
                 task.setTitle(resultSet.getString("Title"));
@@ -70,7 +76,11 @@ public class TaskMapper implements TaskMapperInterface {
     @Override
     public List<Task> getTasksOfList(Long listId) {
         Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from Task where ListId=" + listId;
+        String query = new QueryBuilder()
+                .select("*")
+                .from("task")
+                .where("listid" + listId)
+                .build();
         return getTasks(connection, query);
     }
 }

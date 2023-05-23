@@ -10,9 +10,10 @@ public class App {
                 new QueryBuilder()
                         .select("*")
                         .from("user")
-                        .where("username=" +"'ali raed'")
+                        .where("username=" + "'ali raed'")
                         .build();
         System.out.println(query);
+
     }
 }
 

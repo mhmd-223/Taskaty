@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailsMapper implements DetailsMapperInterface {
-    private Detail detail = new Detail();
+    private final Detail detail = new Detail();
 
     @Override
     public List<Detail> getDetailsOfList(Long listId) {
