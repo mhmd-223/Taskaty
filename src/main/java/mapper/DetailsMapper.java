@@ -14,9 +14,7 @@ public class DetailsMapper implements DetailsMapperInterface {
     private final Detail detail = new Detail();
 
     @Override
-    public List<Detail> getDetailsOfList(Long listId) {
-        Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from Detail where ListId=" + listId;
+    public List<Detail> getDetailsOfList(Connection connection,String query) {
         List<Detail> details = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();

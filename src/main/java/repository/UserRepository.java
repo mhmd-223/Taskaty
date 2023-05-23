@@ -10,7 +10,7 @@ public interface UserRepository {
 
     void updateUser(User user) throws RuntimeException;
 
-    void deleteUser(User user) throws RuntimeException;
+    void deleteUser(String username) throws RuntimeException;
 
     User getUserByUsername(String username) throws RuntimeException;
 

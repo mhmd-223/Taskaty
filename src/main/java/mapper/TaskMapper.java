@@ -15,14 +15,8 @@ public class TaskMapper implements TaskMapperInterface {
     private final Task task = new Task();
 
     @Override
-    public Task getTask(long id) {
-        Connection connection = MySQLConfigure.getConnection();
-        String query =
-                new QueryBuilder()
-                        .select("*")
-                        .from("task")
-                        .where("id=" + id)
-                        .build();
+    public Task getTask(Connection connection,String query) {
+
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -43,14 +37,8 @@ public class TaskMapper implements TaskMapperInterface {
         return task;
     }
 
-    @Override
-    public List<Task> getAllTasks() {
-        Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from Task";
-        return getTasks(connection, query);
-    }
 
-    private List<Task> getTasks(Connection connection, String query) {
+    public List<Task> getTasks(Connection connection, String query) {
         List<Task> tasks = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();

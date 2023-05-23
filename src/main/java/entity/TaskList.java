@@ -3,7 +3,7 @@ package entity;
 import java.util.List;
 
 public class TaskList {
-    private String id;
+    private Long id;
     private String title;
     private List<Task> tasks;
     private List<Detail> details;
@@ -11,18 +11,18 @@ public class TaskList {
     public TaskList() {
     }
 
-    public TaskList(String id, String title, List<Task> tasks, List<Detail> details) {
+    public TaskList(Long id, String title, List<Task> tasks, List<Detail> details) {
         this.id = id;
         this.title = title;
         this.tasks = tasks;
         this.details = details;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

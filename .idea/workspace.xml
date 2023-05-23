@@ -5,13 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="112df84a-598d-402a-8207-59158655ea10" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/JdbcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/DetailsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLDetailsRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLListRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLTaskRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLUserRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TaskList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TaskList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/DetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/DetailsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/DetailsMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/DetailsMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/TaskListMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/TaskListMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/TaskListMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/TaskListMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/TaskMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/TaskMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/TaskMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/UserMapperInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/UserMapperInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ListRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/MySQLConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/MySQLConfigure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +40,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/repository/mysql/MySQLListRepo.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/utilities/EasyScanner.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -47,21 +59,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "D:/database project/Taskaty/src/main/java/repository",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/database project/Taskaty/src/main/java/repository&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\database project\Taskaty\src\main\java\repository" />
@@ -91,6 +103,7 @@
       <updated>1684782946168</updated>
       <workItem from="1684797838248" duration="31000" />
       <workItem from="1684797956638" duration="2716000" />
+      <workItem from="1684853965065" duration="18378000" />
     </task>
     <servers />
   </component>
