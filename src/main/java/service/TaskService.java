@@ -6,5 +6,4 @@ package service;
  * It depends on TaskRepository, having a composition relationship
  */
 public class TaskService {
-
 }
