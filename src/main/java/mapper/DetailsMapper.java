@@ -20,10 +20,10 @@ public class DetailsMapper implements DetailsMapperInterface {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                detail.setId(resultSet.getLong("Id"));
-                detail.setValue(resultSet.getString("Value"));
-                detail.setKey(resultSet.getString("Key"));
-                detail.setListId(resultSet.getLong("ListId"));
+                detail.setId(resultSet.getLong("id"));
+                detail.setValue(resultSet.getString("value_"));
+                detail.setKey(resultSet.getString("key_"));
+                detail.setListId(resultSet.getLong("listid"));
                 details.add(detail);
             }
             resultSet.close();

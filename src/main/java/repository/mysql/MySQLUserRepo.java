@@ -13,19 +13,21 @@ import java.util.Map;
 public class MySQLUserRepo implements UserRepository {
     @Override
     public void createUser(User user) throws RuntimeException {
-        String userValues = user.getName() + "," + user.getUsername() + "," + user.getPassword();
-        String query = new QueryBuilder().insert("users", userValues).build();
-        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),query);
-
+        if(user.getUsername() != null) {
+            String userValues = "'" + user.getName() + "','" + user.getUsername() + "','" + user.getPassword() + "'";
+            String query = new QueryBuilder().insert("users", userValues).build();
+            MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(), query);
+        }else
+            System.out.println("Username can't be null");
     }
 
     @Override
     public void updateUser(User user) throws RuntimeException {
         Map<String, String> attributes = new HashMap<>();
-        attributes.put("name", user.getName());
-        attributes.put("username", user.getUsername());
-        attributes.put("password_", user.getPassword());
-        String updateQuery = new QueryBuilder().update("users").set(attributes).where("username=" + user.getUsername()).build();
+        attributes.put("name", "'" + user.getName() + "'");
+        attributes.put("username", "'" + user.getUsername() + "'");
+        attributes.put("password_", "'" + user.getPassword() + "'");
+        String updateQuery = new QueryBuilder().update("users").set(attributes).where("username='" + user.getUsername() + "'").build();
         MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),updateQuery);
 
     }
@@ -34,7 +36,7 @@ public class MySQLUserRepo implements UserRepository {
     public void deleteUser(String username) throws RuntimeException {
         String deleteQuery = new QueryBuilder()
                             .delete("users")
-                            .where("username=" + username)
+                            .where("username='" +  username + "'")
                             .build();
         MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),deleteQuery);
     }
@@ -46,7 +48,7 @@ public class MySQLUserRepo implements UserRepository {
         String query = new QueryBuilder()
                         .select("*")
                         .from("users")
-                        .where("username=" + username)
+                        .where("username='" + username + "'")
                         .build();
         UserMapper userMapper = new UserMapper();
         return userMapper.getUser(query, connection);

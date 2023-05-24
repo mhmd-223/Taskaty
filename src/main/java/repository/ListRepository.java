@@ -11,7 +11,7 @@ public interface ListRepository {
 
     void deleteTaskList(Long taskListId) throws RuntimeException;
 
-    List<TaskList> getListsByUserId(String userId) throws RuntimeException;
+    List<TaskList> getListsByUsername(String userId) throws RuntimeException;
 
     boolean existsById(Long id) throws RuntimeException;
 

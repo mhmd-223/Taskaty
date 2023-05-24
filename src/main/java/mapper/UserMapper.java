@@ -18,7 +18,7 @@ public class UserMapper implements UserMapperInterface {
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
                 user.setUsername(resultSet.getString("username"));
-                user.setPassword(resultSet.getString("password"));
+                user.setPassword(resultSet.getString("password_"));
                 user.setName(resultSet.getString("name"));
             }
             resultSet.close();

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskListMapper implements TaskListMapperInterface {
-    private TaskList taskList;
+    private TaskList taskList = new TaskList();
 
     @Override
     public TaskList getList(Connection connection,String query) {
@@ -24,6 +24,7 @@ public class TaskListMapper implements TaskListMapperInterface {
             if (resultSet.next()) {
                 taskList.setId(resultSet.getLong("Id"));
                 taskList.setTitle(resultSet.getString("Title"));
+                taskList.setUsername(resultSet.getString("username"));
 /*                taskList.setTasks(taskMapper.getTasksOfList(resultSet.getLong("Id")));
                 taskList.setDetails(detailsMapper.getDetailsOfList(resultSet.getLong("Id")));*/
                 taskList.setTasks(null);
@@ -45,13 +46,15 @@ public class TaskListMapper implements TaskListMapperInterface {
             TaskMapper taskMapper = new TaskMapper();
             DetailsMapper detailsMapper = new DetailsMapper();
             while (resultSet.next()) {
-                taskList.setId(resultSet.getLong("Id"));
-                taskList.setTitle(resultSet.getString("Title"));
+                TaskList taskList1 = new TaskList();
+                taskList1.setId(resultSet.getLong("id"));
+                taskList1.setTitle(resultSet.getString("title"));
+                taskList1.setUsername(resultSet.getString("username"));
 /*                taskList.setTasks(taskMapper.getTasksOfList(resultSet.getLong("Id")));
                 taskList.setDetails(detailsMapper.getDetailsOfList(resultSet.getLong("Id")));*/
-                taskList.setTasks(null);
-                taskList.setDetails(null);
-                lists.add(taskList);
+                taskList1.setTasks(null);
+                taskList1.setDetails(null);
+                lists.add(taskList1);
             }
             resultSet.close();
             connection.close();

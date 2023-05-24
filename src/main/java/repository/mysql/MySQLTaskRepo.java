@@ -14,7 +14,7 @@ public class MySQLTaskRepo implements TaskRepository {
 
     @Override
     public void createTask(Task task) throws RuntimeException {
-        String taskValues = task.getUserId()+","+task.getListId() + "," +task.getTitle()+ "," + task.getDescription();
+        String taskValues = "null" + ",'" + task.getUserId()+"',"+task.getListId() + ",'" +task.getTitle()+ "','" + task.getDescription() + "'," + task.isCompleted();
         String createQuery = new QueryBuilder().insert("task", taskValues).build();
         MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),createQuery);
     }
@@ -22,11 +22,12 @@ public class MySQLTaskRepo implements TaskRepository {
     @Override
     public void updateTask(Task task) throws RuntimeException {
         Map<String, String> attributes = new HashMap<>();
-        //attributes.put("id",Long.toString(task.getId()));
-        attributes.put("username", task.getUserId());
-        attributes.put("listid", Long.toString(task.getListId()));
-        attributes.put("title", task.getTitle());
-        attributes.put("description", task.getDescription());
+        attributes.put("id",Long.toString(task.getId()));
+        attributes.put("username", "'" + task.getUserId() + "'");
+        attributes.put("listid",task.getListId() == null ? "NULL": Long.toString(task.getListId()));
+        attributes.put("title", "'" + task.getTitle() + "'");
+        attributes.put("description_", "'" + task.getDescription() + "'");
+        attributes.put("iscompleted",Boolean.toString(task.isCompleted()));
         String updateQuery = new QueryBuilder()
                             .update("task")
                             .set(attributes)
@@ -47,11 +48,10 @@ public class MySQLTaskRepo implements TaskRepository {
 
     @Override
     public List<Task> getTasksByListID(Long listId) throws RuntimeException {
-
         String query = new QueryBuilder()
                 .select("*")
                 .from("task")
-                .where("listid" + listId)
+                .where("listid=" + listId)
                 .build();
 
         return new TaskMapper().getTasks(MySQLConfigure.getConnection(),query);
@@ -62,7 +62,7 @@ public class MySQLTaskRepo implements TaskRepository {
         String query = new QueryBuilder()
                 .select("*")
                 .from("task")
-                .where("userid" + userId)
+                .where("username=" + "'" + userId + "'")
                 .build();
         return new TaskMapper().getTasks(MySQLConfigure.getConnection(),query) ;
     }
@@ -75,6 +75,6 @@ public class MySQLTaskRepo implements TaskRepository {
                         .from("task")
                         .where("id=" +id)
                         .build();
-        return (new TaskMapper().getTask(MySQLConfigure.getConnection(),query)!=null);
+        return (new TaskMapper().getTask(MySQLConfigure.getConnection(),query).getId()!=null);
     }
 }

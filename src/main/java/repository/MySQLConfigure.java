@@ -15,7 +15,7 @@ public class MySQLConfigure {
         Connection connection;
         try {
             // creating connection with mySQL
-            connection = DriverManager.getConnection(PropertiesWrapper.url, PropertiesWrapper.username, PropertiesWrapper.password);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/taskaty","root", "Welcome@123");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
