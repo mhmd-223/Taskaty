@@ -20,16 +20,15 @@ public class EditingListCommand extends Command {
         Integer id = validateId(args, lists);
         if (id == null)
             return false;
-
+        args.remove(0);
         Detail detail;
         for (String arg : args) {
             if (!arg.contains("=")) {
-                setErrorMessage(Errors.MISSING_PROPERTY_NAME.formatted(args));
+                setErrorMessage(Errors.MISSING_PROPERTY_NAME.formatted(arg));
                 return false;
             }
             String[] pair = arg.split("=");
             detail = new Detail(pair[0], pair[1], lists.get(id).getId());
-
             boolean updatingResult = detailService.updateDetail(detail, lists.get(id).getId());
             if (updatingResult)
                 return true;

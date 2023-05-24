@@ -78,11 +78,11 @@ public abstract class Command {
             return null;
         }
         int id = Integer.parseInt(args.get(0));
-        if (id >= tasks.size() || id < 0) {
+        if (id > tasks.size() || id <= 0) {
             setErrorMessage(Errors.INVALID_ID_VALUE.formatted(id));
             return null;
         }
-        return id;
+        return id - 1;
     }
 
     public void setTaskService(TaskService taskService) {

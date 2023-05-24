@@ -12,7 +12,7 @@ public class ListService {
         this.repository = repository;
     }
 
-    public boolean addTask(TaskList list) {
+    public boolean addList(TaskList list) {
         try {
             repository.createTaskList(list);
             return true;

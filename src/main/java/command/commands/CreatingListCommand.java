@@ -5,13 +5,15 @@ import entity.Detail;
 import entity.TaskList;
 import entity.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CreatingListCommand extends Command{
+public class CreatingListCommand extends Command {
 
     public CreatingListCommand() {
         super(1, true);
     }
+
     @Override
     public boolean execute(User user, List<String> args) {
         String listTitle = args.remove(0);
@@ -20,16 +22,24 @@ public class CreatingListCommand extends Command{
             return false;
         }
         // Todo HOW TO ADD LIST ID TO EACH DETAIL
+        List<Detail> details = new ArrayList<>();
         if (!args.isEmpty()) {
             for (String arg : args) {
                 if (!arg.contains("=")) {
                     setErrorMessage(Errors.MISSING_PROPERTY_NAME.formatted(arg));
                     return false;
                 }
-                String [] pair = arg.split("=");
+                String[] pair = arg.split("=");
+                Detail detail = new Detail(pair[0], pair[1], null);
+                details.add(detail);
             }
         }
-        return true;
+        TaskList list = new TaskList(null, listTitle, user.getUsername(), null, details);
+        boolean creationResult = listService.addList(list);
+        if (creationResult)
+            return true;
+        setErrorMessage("Failed to create a list.");
+        return false;
     }
 
     @Override

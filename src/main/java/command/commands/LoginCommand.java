@@ -8,12 +8,15 @@ import java.util.List;
 
 public class LoginCommand extends Command {
 
+    private User successfulLoggedUser;
+
     public LoginCommand() {
         super(1, false);
     }
 
     @Override
     public boolean execute(User user, List<String> args) {
+        user.setUsername(args.get(0));
         Authentication authentication = new Authentication(user);
         if (!authentication.isAuthenticated()) {
             if (authentication.isWrongPassword()) {
@@ -23,6 +26,7 @@ public class LoginCommand extends Command {
             setErrorMessage(Errors.WRONG_USERNAME);
             return false;
         }
+        successfulLoggedUser  = authentication.getUser();
         return true;
     }
 
@@ -40,5 +44,9 @@ public class LoginCommand extends Command {
                 Usage:   login <username>
                 Example: login mhmd
                 """;
+    }
+
+    public User getSuccessfulLoggedUser() {
+        return successfulLoggedUser;
     }
 }

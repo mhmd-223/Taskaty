@@ -13,12 +13,12 @@ public class Registration {
     public boolean registerUser(User user) {
 
         /* Check if the username is already taken */
-        if (service.retrieveAccount(user.getUsername()) != null) {
+        if (service.retrieveAccount(user.getUsername()).getUsername() != null) {
             exists = true;
             return false;
         }
         exists = false;
-        return registerUser(user);
+        return service.registerUser(user);
     }
 
     public boolean isExists() {

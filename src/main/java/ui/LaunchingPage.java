@@ -3,6 +3,11 @@ package ui;
 import utilities.ConsoleIO;
 
 public class LaunchingPage extends Page {
+
+    public LaunchingPage() {
+        configureContent();
+    }
+
     @Override
     public String prompt() {
         return ConsoleIO.readLine(">> ");

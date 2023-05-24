@@ -13,15 +13,17 @@ import java.util.Properties;
 public class MySQLConfigure {
     public static Connection getConnection() {
         Connection connection;
+        PropertiesWrapper wrapper = new PropertiesWrapper();
         try {
             // creating connection with mySQL
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/taskaty","root", "Welcome@123");
+            connection = DriverManager.getConnection(wrapper.url, wrapper.username, wrapper.password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return connection;
     }
-    public static void accessDatabase(Connection connection,String query){
+
+    public static void accessDatabase(Connection connection, String query) {
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.executeUpdate();
@@ -33,9 +35,9 @@ public class MySQLConfigure {
     }
 
     private static class PropertiesWrapper {
-        private static String password;
-        private static String username;
-        private static String url;
+        private String password;
+        private String username;
+        private String url;
 
         public PropertiesWrapper() {
             Properties properties = new Properties();
@@ -44,7 +46,6 @@ public class MySQLConfigure {
             try (InputStream input = new FileInputStream(fileName)) {
                 /* Load the properties file */
                 properties.load(input);
-
                 /* Retrieve the MySQL connection properties */
                 url = properties.getProperty("mysql.url");
                 username = properties.getProperty("mysql.username");

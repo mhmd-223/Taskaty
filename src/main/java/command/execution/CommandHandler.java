@@ -3,29 +3,42 @@ package command.execution;
 import command.commands.Command;
 import command.commands.CommandFactory;
 import command.parsingandvalidation.*;
-import utilities.ConsoleIO;
+
+import java.util.List;
 
 public class CommandHandler {
-    private static CommandValidator chain;
+    private CommandValidator chain;
+    private List<String> args;
 
-    public static Command parseAndValidate(String input) {
+    private String errorMessage;
+
+    private void configureValidationChain() {
+        chain = new SyntaxValidator();
+        chain.setNextValidator(new ArgumentCountValidator());
+    }
+
+    public Command parseAndValidate(String input) {
         configureValidationChain();
         ParsedCommand command = Parser.parse(input);
 
         /* Go through the validation stages */
         while (chain != null) {
             if (!chain.validate(command)) {
-                ConsoleIO.printError(chain.getErrorMessage());
+                errorMessage = chain.getErrorMessage();
                 return null;
             }
             chain = chain.getValidator();
         }
+        args = command.args();
 
         return CommandFactory.createCommand(command.tag());
     }
 
-    private static void configureValidationChain() {
-        chain = new SyntaxValidator();
-        chain.setNextValidator(new ArgumentCountValidator());
+    public List<String> getArgs() {
+        return args;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 }

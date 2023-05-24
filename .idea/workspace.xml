@@ -6,35 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="112df84a-598d-402a-8207-59158655ea10" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeletingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeletingListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeletingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeletingTaskCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/ExitingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/ExitingCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/HomepageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/HomepageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/LoggingOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/LoggingOutCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MovingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MovingTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/OpeningTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/OpeningTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/ShowingTasksCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/ShowingTasksCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/execution/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/execution/CommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/parsingandvalidation/Errors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/parsingandvalidation/Errors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/execution/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/execution/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/parsingandvalidation/SyntaxValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/parsingandvalidation/SyntaxValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/MySQLConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/MySQLConfigure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLUserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLUserRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/ListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ListService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,15 +66,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mysql-connector-java-8.0.27.jar" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "A:/JAVA Projects/DSA in Java book 6th ed/libs/mysql-connector-j-8.0.32.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\database project\Taskaty\src\main\java\repository" />
@@ -166,6 +157,25 @@
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/repository/MySQLConfigure.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/TaskService.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java</url>
+          <line>17</line>
+          <properties class="command.commands.LoginCommand" method="execute">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

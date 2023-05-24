@@ -55,4 +55,15 @@ public class User {
     public void setTaskLists(List<TaskList> taskLists) {
         this.taskLists = taskLists;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", tasks=" + tasks +
+                ", taskLists=" + taskLists +
+                '}';
+    }
 }

@@ -13,7 +13,7 @@ public abstract class Page {
         System.out.println(content);
     }
 
-    public void clear() {
+    private void clear() {
         System.out.println(ConsoleColors.CLEAR);
     }
 

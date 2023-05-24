@@ -1,6 +1,7 @@
 package command.execution;
 
 import command.commands.Command;
+import entity.User;
 
 import java.util.List;
 
@@ -9,8 +10,8 @@ public class CommandExecutor {
         /* Prevent instantiation */
     }
 
-    public static ExecutionResult executeCommand(Command command, List<String> args) {
-        boolean status = command.execute(null,args);
+    public static ExecutionResult executeCommand(Command command, List<String> args, User user) {
+        boolean status = command.execute(user,args);
         if (status)
             return ExecutionResult.success();
         else

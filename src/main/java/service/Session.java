@@ -8,7 +8,7 @@ import ui.LaunchingPage;
 import ui.Page;
 
 public class Session {
-    private final User user;
+    private User user;
     private boolean loggedIn;
 
     private TaskService taskService;
@@ -18,6 +18,9 @@ public class Session {
         this.user = user;
         taskService = new TaskService(new MySQLTaskRepo());
         listService = new ListService(new MySQLListRepo());
+    }
+
+    public Session() {
     }
 
     public void start() {
@@ -44,5 +47,13 @@ public class Session {
 
     public void setListService(ListService listService) {
         this.listService = listService;
+    }
+
+    public User getUser() {
+        return user;
+    }
+    public void refreshUser() {
+        user.setTasks(taskService.getAllTasks(user.getUsername()));
+        user.setTaskLists(listService.getLists(user.getUsername()));
     }
 }

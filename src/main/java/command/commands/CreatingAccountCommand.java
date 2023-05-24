@@ -14,6 +14,8 @@ public class CreatingAccountCommand extends Command{
 
     @Override
     public boolean execute(User user, List<String> args) {
+        user.setName(args.get(0));
+        user.setUsername(args.get(1));
         Registration registration = new Registration(userService);
         if (!registration.registerUser(user)) {
             if (registration.isExists())

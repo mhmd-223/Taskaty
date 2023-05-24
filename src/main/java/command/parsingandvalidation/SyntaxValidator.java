@@ -15,7 +15,6 @@ public class SyntaxValidator extends CommandValidator {
         /* validate args syntax */
         List<String> args = command.args();
         for (String arg : args) {
-
             if (propertyAssignmentValidation(arg))
                 return false;
 
@@ -29,6 +28,9 @@ public class SyntaxValidator extends CommandValidator {
 
 
     private boolean matchedQuotesValidation(String arg) {
+        if (arg.contains("="))
+            return false;
+
         if (arg.startsWith("\"") && !arg.endsWith("\"")) {
             setErrorMessage(Errors.UNCLOSED_QUOTE.formatted(arg));
             return true;
