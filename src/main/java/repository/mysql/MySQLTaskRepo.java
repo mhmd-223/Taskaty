@@ -21,27 +21,27 @@ public class MySQLTaskRepo implements TaskRepository {
 
     @Override
     public void updateTask(Task task) throws RuntimeException {
-        Map<String, String> attributes = new HashMap<>();
-        attributes.put("id",Long.toString(task.getId()));
-        attributes.put("username", "'" + task.getUserId() + "'");
-        attributes.put("listid",task.getListId() == null ? "NULL": Long.toString(task.getListId()));
-        attributes.put("title", "'" + task.getTitle() + "'");
-        attributes.put("description_", "'" + task.getDescription() + "'");
-        attributes.put("iscompleted",Boolean.toString(task.isCompleted()));
-        String updateQuery = new QueryBuilder()
-                            .update("task")
-                            .set(attributes)
-                            .where("id=" +task.getId())
-                            .build();
-        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),updateQuery);
+            Map<String, String> attributes = new HashMap<>();
+            attributes.put("id", Long.toString(task.getId()));
+            attributes.put("username", "'" + task.getUserId() + "'");
+            attributes.put("listid", task.getListId() == null ? "NULL" : Long.toString(task.getListId()));
+            attributes.put("title", "'" + task.getTitle() + "'");
+            attributes.put("description_", "'" + task.getDescription() + "'");
+            attributes.put("iscompleted", Boolean.toString(task.isCompleted()));
+            String updateQuery = new QueryBuilder()
+                    .update("task")
+                    .set(attributes)
+                    .where("id=" + task.getId())
+                    .build();
+            MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(), updateQuery);
 
     }
 
     @Override
-    public void deleteTask(Task task) throws RuntimeException {
+    public void deleteTask(Long taskId) throws RuntimeException {
         String deleteQuery = new QueryBuilder()
                 .delete("task")
-                .where("id=" + task.getId())
+                .where("id=" + taskId)
                 .build();
         MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),deleteQuery);
     }

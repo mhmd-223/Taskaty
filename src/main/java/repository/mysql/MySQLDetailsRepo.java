@@ -15,7 +15,7 @@ public class MySQLDetailsRepo implements DetailsRepository {
 
     @Override
     public void createDetail(Detail detail) {
-        String detailValues =detail.getListId()+","+detail.getKey()+","+detail.getValue();
+        String detailValues ="null,"+detail.getListId()+",'"+detail.getKey()+"','"+detail.getValue()+"'";
         String createQuery = new QueryBuilder().insert("detail", detailValues).build();
         MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),createQuery);
     }
@@ -23,10 +23,10 @@ public class MySQLDetailsRepo implements DetailsRepository {
     @Override
     public void updateDetail(Detail detail) {
         Map<String, String> attributes = new HashMap<>();
-        //attributes.put("id",Long.toString(detail.getId()));
-        attributes.put("listid", Long.toString(detail.getListId()));
-        attributes.put("key_", detail.getKey());
-        attributes.put("value_", detail.getValue());
+        attributes.put("id",Long.toString(detail.getId()));
+        attributes.put("listid",Long.toString(detail.getListId()));
+        attributes.put("key_","'"+detail.getKey()+"'");
+        attributes.put("value_","'"+detail.getValue()+"'");
         String updateQuery = new QueryBuilder()
                 .update("detail")
                 .set(attributes)
