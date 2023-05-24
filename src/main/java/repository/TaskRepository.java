@@ -16,7 +16,7 @@ public interface TaskRepository {
     void updateTask(Task task) throws RuntimeException;
 
 
-    void deleteTask(Task task) throws RuntimeException;
+    void deleteTask(Long taskId) throws RuntimeException;
 
     List<Task> getTasksByListID(Long listId) throws RuntimeException;
 
