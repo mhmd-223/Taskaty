@@ -1,5 +1,8 @@
 package command.commands;
 
+import entity.Task;
+import entity.User;
+
 import java.util.List;
 
 public class MarkingCompletedCommand extends Command {
@@ -7,10 +10,20 @@ public class MarkingCompletedCommand extends Command {
     public MarkingCompletedCommand() {
         super(1, false);
     }
+
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: mark task as completed
-        return true;
+    public boolean execute(User user, List<String> args) {
+        List<Task> tasks = user.getTasks();
+        Integer id = validateId(args, tasks);
+        if (id == null) return false;
+
+        Task task = tasks.get(id);
+        task.setCompleted(true);
+        boolean marked = taskService.editTaskInfo(task);
+        if (marked)
+            return true;
+        setErrorMessage("Failed to mark task " + task + " as completed.");
+        return false;
 
     }
 

@@ -2,8 +2,10 @@ package ui;
 
 import entity.Task;
 import entity.TaskList;
+import entity.User;
 import utilities.ConsoleIO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Homepage extends Page {
@@ -12,12 +14,22 @@ public class Homepage extends Page {
     private final String name;
     private final List<TaskList> taskLists;
 
-    public Homepage(String name, List<Task> tasks, List<Task> completedTasks, List<TaskList> taskLists) {
-        this.tasks = tasks;
-        this.name = name;
-        this.completedTasks = completedTasks;
-        this.taskLists = taskLists;
+    public Homepage(User user) {
+        tasks = user.getTasks();
+        name = user.getName();
+        this.completedTasks = getCompletedTasks();
+        this.taskLists = user.getTaskLists();
         configureContent();
+    }
+
+    public List<Task> getCompletedTasks() {
+        List<Task> completed = new ArrayList<>();
+        this.tasks.forEach(task -> {
+            if (task.isCompleted()) {
+                completed.add(task);
+            }
+        });
+        return completed;
     }
 
     @Override

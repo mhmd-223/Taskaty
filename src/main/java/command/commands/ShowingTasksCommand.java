@@ -1,16 +1,26 @@
 package command.commands;
 
+import entity.TaskList;
+import entity.User;
+import ui.ListPage;
+import ui.Page;
+
 import java.util.List;
 
-public class ShowingTasksCommand extends Command{
+public class ShowingTasksCommand extends Command {
 
     public ShowingTasksCommand() {
         super(1, false);
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: Showing tasks execution
+    public boolean execute(User user, List<String> args) {
+        List<TaskList> lists = user.getTaskLists();
+        Integer listID = validateId(args, lists);
+        if (listID == null)
+            return false;
+        Page listPage = new ListPage(lists.get(listID));
+        listPage.refresh();
         return true;
 
     }

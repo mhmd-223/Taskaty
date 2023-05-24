@@ -1,5 +1,9 @@
 package command.commands;
 
+import entity.User;
+import ui.LaunchingPage;
+import ui.Page;
+
 import java.util.List;
 
 public class LoggingOutCommand extends Command {
@@ -7,9 +11,11 @@ public class LoggingOutCommand extends Command {
     public LoggingOutCommand() {
         super(0, false);
     }
+
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: log out user
+    public boolean execute(User user, List<String> args) {
+        Page launchingPage = new LaunchingPage();
+        launchingPage.display();
         return true;
 
     }

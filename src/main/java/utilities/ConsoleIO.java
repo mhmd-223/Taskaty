@@ -22,6 +22,9 @@ public class ConsoleIO {
         console.printf(ConsoleColors.RED_BOLD + err + ConsoleColors.RESET);
     }
 
+    public static void printDocumentation(String doc) {
+        console.printf(ConsoleColors.CYAN_BOLD + doc + ConsoleColors.RESET);
+    }
 
     public static String readPassword(String prompt) {
         return String.valueOf(console.readPassword(prompt));

@@ -1,17 +1,39 @@
 package command.commands;
 
+import entity.Task;
+import entity.TaskList;
+import entity.User;
+
 import java.util.List;
 
-public class MovingTaskCommand extends Command{
+public class MovingTaskCommand extends Command {
 
     public MovingTaskCommand() {
         super(2, false);
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: Moving task execution
-        return true;
+    public boolean execute(User user, List<String> args) {
+        List<Task> tasks = user.getTasks();
+        List<TaskList> lists = user.getTaskLists();
+
+        Integer taskID = validateId(args, tasks);
+        if (taskID == null)
+            return false;
+        args.remove(0);
+
+        Integer listID = validateId(args, lists);
+        if (listID == null)
+            return false;
+
+        Task task = tasks.get(taskID);
+        TaskList list = lists.get(listID);
+        task.setListId(list.getId());
+
+        boolean movingResult = taskService.editTaskInfo(task);
+        if (movingResult) return true;
+        setErrorMessage("Failed to moving task " + task.getTitle() + " to the list " + list.getTitle());
+        return false;
 
     }
 

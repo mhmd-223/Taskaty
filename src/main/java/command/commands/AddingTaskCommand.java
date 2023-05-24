@@ -1,6 +1,11 @@
 package command.commands;
 
+import entity.Task;
+import entity.TaskBuilder;
+import entity.User;
+
 import java.util.List;
+import java.util.Map;
 
 public class AddingTaskCommand extends Command {
 
@@ -9,11 +14,21 @@ public class AddingTaskCommand extends Command {
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: Adding task execution
-        return true;
+    public boolean execute(User user, List<String> args) {
+        Map<String, String> argsValues = getArgsValues(args);
+        if (argsValues == null) return false;
+        Task task = new TaskBuilder().setTitle(argsValues.get("title"))
+                .setDescription(argsValues.get("desc"))
+                .createTask();
+
+        boolean addingResult = taskService.addTask(task);
+        if (addingResult)
+            return true;
+        setErrorMessage("Failed to add a new task.");
+        return false;
 
     }
+
 
     @Override
     public String getDescription() {

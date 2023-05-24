@@ -10,7 +10,7 @@ public class CommandExecutor {
     }
 
     public static ExecutionResult executeCommand(Command command, List<String> args) {
-        boolean status = command.execute(args);
+        boolean status = command.execute(null,args);
         if (status)
             return ExecutionResult.success();
         else

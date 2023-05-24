@@ -1,7 +1,11 @@
 package entity;
 
+import java.util.List;
+
 public class User {
     private String username, name, password;
+    private List<Task> tasks;
+    private List<TaskList> taskLists;
 
     public User(String username, String name, String password) {
         this.username = username;
@@ -34,5 +38,21 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<TaskList> getTaskLists() {
+        return taskLists;
+    }
+
+    public void setTaskLists(List<TaskList> taskLists) {
+        this.taskLists = taskLists;
     }
 }

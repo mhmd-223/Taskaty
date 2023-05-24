@@ -1,8 +1,13 @@
 package command.commands;
 
+import command.parsingandvalidation.Errors;
+import entity.Detail;
+import entity.TaskList;
+import entity.User;
+
 import java.util.List;
 
-public class EditingListCommand extends Command{
+public class EditingListCommand extends Command {
 
 
     public EditingListCommand() {
@@ -10,8 +15,28 @@ public class EditingListCommand extends Command{
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: edit list details
+    public boolean execute(User user, List<String> args) {
+        List<TaskList> lists = user.getTaskLists();
+        Integer id = validateId(args, lists);
+        if (id == null)
+            return false;
+
+        Detail detail;
+        for (String arg : args) {
+            if (!arg.contains("=")) {
+                setErrorMessage(Errors.MISSING_PROPERTY_NAME.formatted(args));
+                return false;
+            }
+            String[] pair = arg.split("=");
+            detail = new Detail(pair[0], pair[1], lists.get(id).getId());
+
+            boolean updatingResult = detailService.updateDetail(detail, lists.get(id).getId());
+            if (updatingResult)
+                return true;
+            setErrorMessage("Failed to edit details for the list " + lists.get(id).getTitle());
+        }
+
+
         return true;
 
     }

@@ -38,4 +38,35 @@ public class Errors {
             Invalid Arguments Count: '%s' command expects %s arguments, but %s are provided.
             Please provide the correct number of arguments as specified in the command documentation.
             """;
+    public static final String UNSUPPORTED_PROPERTY = """
+            Unsupported Task Property: The task property '%s' is not supported.
+            Please make sure you are using valid properties for the task.
+                        
+            Supported properties: title, description
+            """;
+    public static final String INVALID_ID_FORMAT = """
+            Invalid Task ID: The provided ID '%s' for the task is not valid.
+            Please make sure to provide a numeric ID for the task.
+            """;
+    public static final String INVALID_ID_VALUE = """
+            Invalid Task ID: The provided task ID '%s' is not valid.
+            Please make sure to enter a numeric ID corresponding to an existing task.
+            """;
+
+    public static final String INVALID_LIST_NAME = """
+            Invalid List Name: The provided list name '%s' is not valid.
+            Please make sure to enter a valid list name.
+            """;
+    public static final String WRONG_PASSWORD = """
+            Invalid password. The password you entered does not match the one associated with your account.
+            Please double-check your password and try again.
+            """;
+    public static final String WRONG_USERNAME = """
+            Invalid username. The username you entered does not exist in our system.
+            Please verify your username and try again.
+            """;
+    public static final String DUPLICATED_USERNAME = """
+            Duplicated username. The username you entered already exists in our system.
+            Please use another one and try again.
+            """;
 }

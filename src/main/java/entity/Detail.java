@@ -1,5 +1,7 @@
 package entity;
 
+import java.util.Objects;
+
 public class Detail {
     private String key, value;
     private Long id, listId;
@@ -7,10 +9,9 @@ public class Detail {
     public Detail() {
     }
 
-    public Detail(String key, String value, Long id, Long listId) {
+    public Detail(String key, String value, Long listId) {
         this.key = key;
         this.value = value;
-        this.id = id;
         this.listId = listId;
     }
 
@@ -45,4 +46,13 @@ public class Detail {
     public void setListId(Long listId) {
         this.listId = listId;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Detail detail = (Detail) o;
+        return Objects.equals(key, detail.key) && Objects.equals(value, detail.value) && Objects.equals(listId, detail.listId);
+    }
+
 }

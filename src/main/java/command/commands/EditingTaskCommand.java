@@ -1,18 +1,51 @@
 package command.commands;
 
-import java.util.List;
+import command.parsingandvalidation.Errors;
+import entity.Task;
+import entity.User;
 
-public class EditingTaskCommand extends Command{
+import java.util.List;
+import java.util.Map;
+
+public class EditingTaskCommand extends Command {
 
     public EditingTaskCommand() {
         super(2, true);
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: Editing task execution
-        return true;
+    public boolean execute(User user, List<String> args) {
+        List<Task> tasks = user.getTasks();
+        Integer id = validate(args, tasks);
+        if (id == null) return false;
 
+        Map<String, String> argsValues = getArgsValues(args);
+        Task task = tasks.get(id);
+        for (String property : argsValues.keySet()) {
+            if (property.equals("title"))
+                task.setTitle(argsValues.get(property));
+            if (property.startsWith("desc"))
+                task.setTitle(argsValues.get(property));
+        }
+
+        boolean updatingResult = taskService.editTaskInfo(task);
+        if (updatingResult) return true;
+        setErrorMessage("Failed to update properties of task " + task.getTitle() + ".");
+        return false;
+
+    }
+
+    private Integer validate(List<String> args, List<Task> tasks) {
+        Integer id = validateId(args, tasks);
+        if (id == null) return null;
+        args.remove(0);
+        for (String arg : args) {
+            if (!arg.contains("=")) {
+                setErrorMessage(Errors.MISSING_PROPERTY_NAME.formatted(arg));
+                return null;
+            }
+        }
+        return id;
     }
 
     @Override

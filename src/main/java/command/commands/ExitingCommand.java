@@ -1,5 +1,8 @@
 package command.commands;
 
+import entity.User;
+import utilities.ConsoleIO;
+
 import java.util.List;
 
 public class ExitingCommand extends Command {
@@ -10,10 +13,16 @@ public class ExitingCommand extends Command {
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: 5/23/2023 exit application
-        return true;
+    public boolean execute(User user, List<String> args) {
+        ConsoleIO.printDocumentation("""
+                                
+                Thank you for using Taskaty! Remember, every completed task brings you closer to your goals. See you next time!
+                                
+                - The Taskaty Team
+                """);
 
+        System.exit(0);
+        return true;
     }
 
     @Override

@@ -1,16 +1,46 @@
 package command.commands;
 
+import command.parsingandvalidation.Errors;
+import entity.User;
+import utilities.ConsoleIO;
+
 import java.util.List;
 
-public class HelpCommand extends Command{
+public class HelpCommand extends Command {
 
-    public HelpCommand(){
+    public HelpCommand() {
         super(0, true);
     }
 
+    private static void extractDescAndUsage(Command command) {
+        ConsoleIO.printDocumentation(command.getDescription());
+        ConsoleIO.printDocumentation("\n");
+        ConsoleIO.printDocumentation(command.getUsage());
+    }
+
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: display help for users
+    public boolean execute(User user, List<String> args) {
+        Command command;
+        if (args.isEmpty()) {
+            for (Class<? extends Command> value : CommandFactory.getCommands().values()) {
+                try {
+                    command = value.getDeclaredConstructor().newInstance();
+                    extractDescAndUsage(command);
+                } catch (Exception e) {
+                    setErrorMessage("Something wrong occurred.");
+                    return false;
+                }
+            }
+        } else {
+            for (String arg : args) {
+                command = CommandFactory.createCommand(arg);
+                if (command == null) {
+                    setErrorMessage(Errors.UNSUPPORTED_COMMAND.formatted(arg));
+                    return false;
+                }
+                extractDescAndUsage(command);
+            }
+        }
         return true;
 
     }

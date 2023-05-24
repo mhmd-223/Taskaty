@@ -1,18 +1,28 @@
 package command.commands;
 
+import entity.Task;
+import entity.User;
+
 import java.util.List;
 
-public class DeletingTaskCommand extends Command{
+public class DeletingTaskCommand extends Command {
 
     public DeletingTaskCommand() {
         super(1, false);
     }
 
-    @Override
-    public boolean execute(List<String> args) {
-        // TODO: delete task
-        return true;
 
+    @Override
+    public boolean execute(User user, List<String> args) {
+        List<Task> tasks = user.getTasks();
+        Integer id = validateId(args, tasks);
+        if (id == null)
+            return false;
+        boolean deletingResult = taskService.deleteTask(tasks.get(id));
+        if (deletingResult)
+            return true;
+        setErrorMessage("Failed to delete task " + tasks.get(id).getTitle());
+        return false;
     }
 
     @Override

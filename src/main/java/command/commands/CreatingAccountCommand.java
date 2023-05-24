@@ -1,16 +1,26 @@
 package command.commands;
 
+import command.parsingandvalidation.Errors;
+import entity.User;
+import service.Registration;
+
 import java.util.List;
 
 public class CreatingAccountCommand extends Command{
 
     public CreatingAccountCommand() {
-        super(3, false);
+        super(2, false);
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: create a new user, logout the current user and log in the new user
+    public boolean execute(User user, List<String> args) {
+        Registration registration = new Registration(userService);
+        if (!registration.registerUser(user)) {
+            if (registration.isExists())
+                setErrorMessage(Errors.DUPLICATED_USERNAME);
+            setErrorMessage("Failed to register a new account.");
+            return false;
+        }
         return true;
     }
 

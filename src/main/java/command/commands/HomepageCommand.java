@@ -1,5 +1,9 @@
 package command.commands;
 
+import entity.User;
+import ui.Homepage;
+import ui.Page;
+
 import java.util.List;
 
 public class HomepageCommand extends Command {
@@ -9,8 +13,9 @@ public class HomepageCommand extends Command {
     }
 
     @Override
-    public boolean execute(List<String> args) {
-        // TODO: takes user for the homepage
+    public boolean execute(User user, List<String> args) {
+        Page homepage = new Homepage(user);
+        homepage.refresh();
         return true;
 
     }

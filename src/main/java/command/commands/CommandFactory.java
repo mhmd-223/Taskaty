@@ -9,7 +9,19 @@ public class CommandFactory {
     static {
         commands.put("addtask", AddingTaskCommand.class);
         commands.put("edittask", EditingListCommand.class);
-        // TODO: write the rest of commands
+        commands.put("move", MovingTaskCommand.class);
+        commands.put("showtasks", ShowingTasksCommand.class);
+        commands.put("complete", MarkingCompletedCommand.class);
+        commands.put("open", OpeningTaskCommand.class);
+        commands.put("deletetask", DeletingTaskCommand.class);
+        commands.put("newlist", CreatingListCommand.class);
+        commands.put("editdetail", EditingListCommand.class);
+        commands.put("deletelist", DeletingListCommand.class);
+        commands.put("login", LoginCommand.class);
+        commands.put("newuser", CreatingAccountCommand.class);
+        commands.put("logout", LoggingOutCommand.class);
+        commands.put("home", HomepageCommand.class);
+        commands.put("exit", ExitingCommand.class);
         commands.put("help", HelpCommand.class);
     }
 
@@ -20,5 +32,9 @@ public class CommandFactory {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public static Map<String, Class<? extends Command>> getCommands() {
+        return commands;
     }
 }
