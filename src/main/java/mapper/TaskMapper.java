@@ -4,10 +4,7 @@ import entity.Task;
 import repository.MySQLConfigure;
 import utilities.QueryBuilder;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,24 +12,18 @@ public class TaskMapper implements TaskMapperInterface {
     private final Task task = new Task();
 
     @Override
-    public Task getTask(long id) {
-        Connection connection = MySQLConfigure.getConnection();
-        String query =
-                new QueryBuilder()
-                        .select("*")
-                        .from("task")
-                        .where("id=" + id)
-                        .build();
+    public Task getTask(Connection connection,String query) {
+
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
-                task.setId(resultSet.getLong("Id"));
-                task.setCompleted(resultSet.getBoolean("Completed"));
-                task.setDescription(resultSet.getString("Description"));
-                task.setTitle(resultSet.getString("Title"));
-                task.setListId(resultSet.getLong("ListId"));
-                task.setUserId(resultSet.getString("UserId"));
+                task.setId(resultSet.getLong("id"));
+                task.setCompleted(resultSet.getBoolean("iscompleted"));
+                task.setDescription(resultSet.getString("description_"));
+                task.setTitle(resultSet.getString("title"));
+                task.setListId(resultSet.getLong("listid"));
+                task.setUserId(resultSet.getString("username"));
             }
             resultSet.close();
             connection.close();
@@ -43,26 +34,21 @@ public class TaskMapper implements TaskMapperInterface {
         return task;
     }
 
-    @Override
-    public List<Task> getAllTasks() {
-        Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from Task";
-        return getTasks(connection, query);
-    }
 
-    private List<Task> getTasks(Connection connection, String query) {
+    public List<Task> getTasks(Connection connection, String query) {
         List<Task> tasks = new ArrayList<>();
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                task.setId(resultSet.getLong("id"));
-                task.setCompleted(resultSet.getBoolean("Completed"));
-                task.setDescription(resultSet.getString("Description"));
-                task.setTitle(resultSet.getString("Title"));
-                task.setListId(resultSet.getLong("ListId"));
-                task.setUserId(resultSet.getString("UserId"));
-                tasks.add(task);
+                Task task1 = new Task();
+                task1.setId(resultSet.getLong("id"));
+                task1.setCompleted(resultSet.getBoolean("iscompleted"));
+                task1.setDescription(resultSet.getString("description_"));
+                task1.setTitle(resultSet.getString("title"));
+                task1.setListId(resultSet.getLong("listid"));
+                task1.setUserId(resultSet.getString("username"));
+                tasks.add(task1);
             }
             resultSet.close();
             connection.close();

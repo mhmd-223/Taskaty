@@ -8,6 +8,18 @@ public class Task {
     public Task() {
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", listId=" + listId +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", userId='" + userId + '\'' +
+                ", completed=" + completed +
+                '}';
+    }
+
     Task(Long id, Long listId, String title, String description, String userId, boolean completed) {
         this.id = id;
         this.listId = listId;

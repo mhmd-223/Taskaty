@@ -14,18 +14,16 @@ public class DetailsMapper implements DetailsMapperInterface {
     private final Detail detail = new Detail();
 
     @Override
-    public List<Detail> getDetailsOfList(Long listId) {
-        Connection connection = MySQLConfigure.getConnection();
-        String query = "Select * from Detail where ListId=" + listId;
+    public List<Detail> getDetailsOfList(Connection connection,String query) {
         List<Detail> details = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
-                detail.setId(resultSet.getLong("Id"));
-                detail.setValue(resultSet.getString("Value"));
-                detail.setKey(resultSet.getString("Key"));
-                detail.setListId(resultSet.getLong("ListId"));
+                detail.setId(resultSet.getLong("id"));
+                detail.setValue(resultSet.getString("value_"));
+                detail.setKey(resultSet.getString("key_"));
+                detail.setListId(resultSet.getLong("listid"));
                 details.add(detail);
             }
             resultSet.close();

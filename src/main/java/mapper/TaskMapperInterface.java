@@ -2,12 +2,13 @@ package mapper;
 
 import entity.Task;
 
+import java.sql.Connection;
 import java.util.List;
 
 public interface TaskMapperInterface {
-    Task getTask(long id);
+    Task getTask( Connection connection,String query);
 
-    List<Task> getAllTasks();
+    List<Task> getTasks(Connection connection, String query);
 
     List<Task> getTasksOfList(Long listId);
 }

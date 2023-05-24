@@ -11,24 +11,14 @@ import java.sql.Statement;
 
 public class UserMapper implements UserMapperInterface {
     User user = new User();
-
     @Override
-    public User getUser(String username) {
-        Connection connection = MySQLConfigure.getConnection();
-        //String query = "select * from User where Username=" + username;
-        String query =
-                new QueryBuilder()
-                        .select("*")
-                        .from("user")
-                        .where("username=" + username)
-                        .build();
-
+    public User getUser(String query,Connection connection) {
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             if (resultSet.next()) {
                 user.setUsername(resultSet.getString("username"));
-                user.setPassword(resultSet.getString("password"));
+                user.setPassword(resultSet.getString("password_"));
                 user.setName(resultSet.getString("name"));
             }
             resultSet.close();
