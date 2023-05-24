@@ -53,7 +53,7 @@ public class TaskService {
 
     public boolean deleteTask(Task task) {
         try {
-            repository.deleteTask(task);
+            repository.deleteTask(task.getId());
             return true;
         } catch (RuntimeException e) {
             return false;

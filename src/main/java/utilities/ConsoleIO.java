@@ -9,21 +9,21 @@ public class ConsoleIO {
 
 
     public static void printSuccessfulOperation(String msg) {
-        print(ConsoleColors.GREEN_BOLD + msg + ConsoleColors.RESET);
+        consolePrint(ConsoleColors.GREEN_BOLD + msg + ConsoleColors.RESET);
     }
 
 
     public static void printFailedOperation(String msg) {
-        print(ConsoleColors.RED_BOLD_BRIGHT + msg + ConsoleColors.RESET);
+        consolePrint(ConsoleColors.RED_BOLD_BRIGHT + msg + ConsoleColors.RESET);
     }
 
 
     public static void printError(String err) {
-        print(ConsoleColors.RED_BOLD + err + ConsoleColors.RESET);
+        consolePrint(ConsoleColors.RED_BOLD + err + ConsoleColors.RESET);
     }
 
     public static void printDocumentation(String doc) {
-        print(ConsoleColors.CYAN_BOLD + doc + ConsoleColors.RESET);
+        consolePrint(ConsoleColors.CYAN_BOLD + doc + ConsoleColors.RESET);
     }
 
     public static String readPassword(String prompt) {
@@ -34,9 +34,8 @@ public class ConsoleIO {
         return String.valueOf(console.readPassword(prompt)).trim();
     }
 
-
     public static String readLine(String prompt) {
-        return scannerRead(prompt);
+        return consoleRead(prompt);
     }
 
     private static void print(String s) {
@@ -44,10 +43,14 @@ public class ConsoleIO {
     }
 
     private static void consolePrint(String s) {
-        console.printf(s);
+        console.printf(s + System.lineSeparator());
     }
 
     private static String scannerRead(String prompt) {
         return new EasyScanner().readSentence(prompt).trim();
+    }
+
+    private static String consoleRead(String prompt) {
+        return console.readLine(prompt);
     }
 }

@@ -7,6 +7,7 @@ import command.execution.CommandHandler;
 import command.execution.ExecutionResult;
 import entity.User;
 import service.Session;
+import ui.Homepage;
 import ui.LaunchingPage;
 import ui.Page;
 import utilities.ConsoleIO;
@@ -17,12 +18,12 @@ import utilities.ConsoleIO;
  */
 public class Manager {
     private final CommandHandler handler;
+    Page page = new LaunchingPage();
     private User user;
 
     public Manager() {
         user = new User();
         handler = new CommandHandler();
-        Page page = new LaunchingPage();
         page.refresh();
         String input = page.prompt();
         Command command = handler.parseAndValidate(input);
@@ -41,17 +42,18 @@ public class Manager {
             readPassword(command);
             user = ((LoginCommand) command).getSuccessfulLoggedUser();
             /* Successful login */
+
             runSession();
         }
     }
 
     private void readPassword(Command command) {
-        String pass = ConsoleIO.readPassword("Password >> ");
+        String pass = ConsoleIO.readSecuredPassword("Password >> ");
         user.setPassword(pass);
         ExecutionResult result = CommandExecutor.executeCommand(command, handler.getArgs(), user);
         while (!result.isSuccess()) {
             ConsoleIO.printError(result.getErrorMessage());
-            pass = ConsoleIO.readPassword("Password >> ");
+            pass = ConsoleIO.readSecuredPassword("Password >> ");
             user.setPassword(pass);
             result = CommandExecutor.executeCommand(command, handler.getArgs(), user);
         }
@@ -76,7 +78,7 @@ public class Manager {
                 ConsoleIO.printError(executionResult.getErrorMessage());
                 continue;
             }
-            ConsoleIO.printSuccessfulOperation("successful");
+            ConsoleIO.printSuccessfulOperation("Successful operation");
             session.refreshUser();
         }
     }

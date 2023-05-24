@@ -16,10 +16,10 @@ public class UserService {
     }
 
     private static void validatePassword(User user) {
-        String pass = ConsoleIO.readPassword("Password >> ");
+        String pass = ConsoleIO.readSecuredPassword("Password >> ");
         while (!PasswordHashing.isMatch(pass, user.getPassword())) {
             ConsoleIO.printError("Wrong password for " + user.getUsername() + " account.");
-            pass = ConsoleIO.readPassword("Password >> ");
+            pass = ConsoleIO.readSecuredPassword("Password >> ");
         }
     }
 
