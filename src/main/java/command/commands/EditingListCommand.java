@@ -4,6 +4,7 @@ import command.parsingandvalidation.Errors;
 import entity.Detail;
 import entity.TaskList;
 import entity.User;
+import ui.ConsoleColors;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class EditingListCommand extends Command {
                 return false;
             }
             String[] pair = arg.split("=");
-            detail = new Detail(pair[0], pair[1], lists.get(id).getId());
+            detail = new Detail(pair[0], removeQuotes(pair[1]), lists.get(id).getId());
             boolean updatingResult = detailService.updateDetail(detail, lists.get(id).getId());
             if (updatingResult)
                 return true;
@@ -43,17 +44,17 @@ public class EditingListCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command allows users to edit the details of an existing list.
-                Users need to specify the name of the list they want to modify and provide
-                the updated detail along with its value.
+                editdetail:  This command allows users to edit the details of an existing list.
+                             Users need to specify the ordinal of the list on HOMEPAGE they want to modify
+                             and provide the updated detail along with its value.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """
-                Usage:   editdetail "<ListName>" <detail="value">
-                Example: editdetail "Work Projects" detail="New details"
+                Usage:   editdetail <listOrdinal> <detail="value">
+                Example: editdetail 1 detail="New details"
                 """;
     }
 }

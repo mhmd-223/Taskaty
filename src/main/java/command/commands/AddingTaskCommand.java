@@ -10,15 +10,15 @@ import java.util.Map;
 public class AddingTaskCommand extends Command {
 
     public AddingTaskCommand() {
-        super(1, true);
+        super(1, false);
     }
 
     @Override
     public boolean execute(User user, List<String> args) {
-        Map<String, String> argsValues = getArgsValues(args);
-        if (argsValues == null) return false;
-        Task task = new TaskBuilder().setTitle(argsValues.get("title"))
-                .setDescription(argsValues.get("desc"))
+
+        Task task = new TaskBuilder()
+                .setTitle(removeQuotes(args.get(0)))
+                .setUserId(user.getUsername())
                 .createTask();
 
         boolean addingResult = taskService.addTask(task);
@@ -33,17 +33,16 @@ public class AddingTaskCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command allows users to add a new task to their task list.
-                Users need to provide a title for the task, and they can optionally
-                include additional information such as a description, due date, and other relevant details.
+                addtask: This command allows users to add a new task to their task list.
+                         Users need to provide a title for the task.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """
-                Usage:   addtask "<Title>" [description="Description"] [...]
-                Example: addtask "Buy groceries" description="Remember to buy milk, eggs, and bread"
+                Usage:   addtask "<Title>"
+                Example: addtask "Buy groceries"
                 """;
     }
 }

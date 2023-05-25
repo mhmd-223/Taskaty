@@ -12,10 +12,10 @@ public class HelpCommand extends Command {
         super(0, true);
     }
 
-    private static void extractDescAndUsage(Command command) {
+    private void extractDescAndUsage(Command command) {
         ConsoleIO.printDocumentation(command.getDescription());
-        ConsoleIO.printDocumentation("\n");
         ConsoleIO.printDocumentation(command.getUsage());
+        ConsoleIO.printDocumentation("---------------------");
     }
 
     @Override
@@ -48,8 +48,8 @@ public class HelpCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command provides assistance and instructions for using Taskaty.
-                Users can provide an optional command parameter to get more detailed information about a specific command.
+                help:  This command provides assistance and instructions for using Taskaty.
+                       Users can provide an optional command parameter to get more detailed information about a specific command.
                 """;
     }
 

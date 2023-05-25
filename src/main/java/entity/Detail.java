@@ -52,7 +52,7 @@ public class Detail {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Detail detail = (Detail) o;
-        return Objects.equals(key, detail.key) && Objects.equals(value, detail.value) && Objects.equals(listId, detail.listId);
+        return Objects.equals(key, detail.key) && Objects.equals(listId, detail.listId);
     }
 
 }

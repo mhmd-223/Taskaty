@@ -23,8 +23,8 @@ public class LoggingOutCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command logs the current user out of Taskaty.
-                It ensures the user's account remains secure and prevents unauthorized access.
+                logout:  This command logs the current user out of Taskaty.
+                         It ensures the user's account remains secure and prevents unauthorized access.
                 """;
     }
 

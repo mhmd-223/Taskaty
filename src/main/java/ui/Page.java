@@ -3,6 +3,7 @@ package ui;
 import entity.Detail;
 import entity.Task;
 import entity.TaskList;
+import utilities.ConsoleIO;
 
 import java.util.List;
 
@@ -17,7 +18,9 @@ public abstract class Page {
         System.out.println(ConsoleColors.CLEAR);
     }
 
-    public abstract String prompt();
+    public String prompt() {
+        return ConsoleIO.readLine(">> ");
+    }
 
     protected abstract void configureContent();
 
@@ -32,29 +35,29 @@ public abstract class Page {
         return content;
     }
 
-    protected <E> String showMenu(String headline, String empty, List<E> items, String style) {
+    protected <E> String showMenu(String headline, String empty, List<E> items) {
         StringBuilder menu = new StringBuilder("\t" + empty);
-        if (!items.isEmpty()) {
+        if (items != null && !items.isEmpty()) {
             menu.setLength(0);
             for (int i = 0, size = items.size(); i < size; i++) {
                 E e = items.get(i);
                 menu.append("\t");
-                if (e instanceof Task)
-                    menu.append(i + 1).append(". ").append(((Task) e).getTitle());
-                else if (e instanceof TaskList)
-                    menu.append(i + 1).append(". ").append(((TaskList) e).getTitle());
-                else if (e instanceof Detail)
-                    menu.append("- ").append(((Detail) e).getKey()).append(": ").append(((Detail) e).getValue());
-
+                if (e instanceof Task task)
+                    menu.append(i + 1).append(". ").append(task.getTitle());
+                else if (e instanceof TaskList taskList)
+                    menu.append(i + 1).append(". ").append(taskList.getTitle());
+                else if (e instanceof Detail detail) {
+                    menu.append("- ").append(detail.getKey()).append(": ").append(detail.getValue());
+                }
+                menu.append(System.lineSeparator());
             }
         }
         return """
                 %s%s:%s
                 %s%s%s
-                
-                
-                
-                """.formatted(ConsoleColors.BLUE_BOLD, headline, ConsoleColors.RESET, style, menu, ConsoleColors.RESET);
+                                           
+                                
+                """.formatted(ConsoleColors.BLUE_BOLD, headline, ConsoleColors.RESET, ConsoleColors.WHITE_BOLD, menu, ConsoleColors.RESET);
     }
 
 }

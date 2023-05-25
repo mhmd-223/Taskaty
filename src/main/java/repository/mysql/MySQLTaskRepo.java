@@ -14,26 +14,26 @@ public class MySQLTaskRepo implements TaskRepository {
 
     @Override
     public void createTask(Task task) throws RuntimeException {
-        String taskValues = "null" + ",'" + task.getUserId()+"',"+task.getListId() + ",'" +task.getTitle()+ "','" + task.getDescription() + "'," + task.isCompleted();
+        String taskValues = "null" + ",'" + task.getUserId() + "'," + task.getListId() + ",'" + task.getTitle() + "','" + task.getDescription() + "'," + task.isCompleted();
         String createQuery = new QueryBuilder().insert("task", taskValues).build();
-        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),createQuery);
+        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(), createQuery);
     }
 
     @Override
     public void updateTask(Task task) throws RuntimeException {
-            Map<String, String> attributes = new HashMap<>();
-            attributes.put("id", Long.toString(task.getId()));
-            attributes.put("username", "'" + task.getUserId() + "'");
-            attributes.put("listid", task.getListId() == null ? "NULL" : Long.toString(task.getListId()));
-            attributes.put("title", "'" + task.getTitle() + "'");
-            attributes.put("description_", "'" + task.getDescription() + "'");
-            attributes.put("iscompleted", Boolean.toString(task.isCompleted()));
-            String updateQuery = new QueryBuilder()
-                    .update("task")
-                    .set(attributes)
-                    .where("id=" + task.getId())
-                    .build();
-            MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(), updateQuery);
+        Map<String, String> attributes = new HashMap<>();
+        attributes.put("id", Long.toString(task.getId()));
+        attributes.put("username", "'" + task.getUserId() + "'");
+        attributes.put("listid", task.getListId() == 0 ? "NULL" : Long.toString(task.getListId()));
+        attributes.put("title", "'" + task.getTitle() + "'");
+        attributes.put("description_", "'" + task.getDescription() + "'");
+        attributes.put("iscompleted", task.isCompleted() ? "1" : "0");
+        String updateQuery = new QueryBuilder()
+                .update("task")
+                .set(attributes)
+                .where("id=" + task.getId())
+                .build();
+        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(), updateQuery);
 
     }
 
@@ -43,7 +43,7 @@ public class MySQLTaskRepo implements TaskRepository {
                 .delete("task")
                 .where("id=" + taskId)
                 .build();
-        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(),deleteQuery);
+        MySQLConfigure.accessDatabase(MySQLConfigure.getConnection(), deleteQuery);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class MySQLTaskRepo implements TaskRepository {
                 .where("listid=" + listId)
                 .build();
 
-        return new TaskMapper().getTasks(MySQLConfigure.getConnection(),query);
+        return new TaskMapper().getTasks(MySQLConfigure.getConnection(), query);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class MySQLTaskRepo implements TaskRepository {
                 .from("task")
                 .where("username=" + "'" + userId + "'")
                 .build();
-        return new TaskMapper().getTasks(MySQLConfigure.getConnection(),query) ;
+        return new TaskMapper().getTasks(MySQLConfigure.getConnection(), query);
     }
 
     @Override
@@ -73,8 +73,8 @@ public class MySQLTaskRepo implements TaskRepository {
                 new QueryBuilder()
                         .select("*")
                         .from("task")
-                        .where("id=" +id)
+                        .where("id=" + id)
                         .build();
-        return (new TaskMapper().getTask(MySQLConfigure.getConnection(),query).getId()!=null);
+        return (new TaskMapper().getTask(MySQLConfigure.getConnection(), query).getId() != null);
     }
 }

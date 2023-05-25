@@ -28,16 +28,16 @@ public class OpeningTaskCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                Open a specific task from your task list for detailed viewing.
-                Provide the ID of the task you want to open, and the system will display comprehensive
-                information about the task, including its title, description, due date, and any other relevant details.
+                open: Open a specific task from your task list for detailed viewing.
+                      Provide the ordinal of the task you want to open, and the system will display comprehensive
+                      information about the task, including its title, description, due date, and any other relevant details.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """
-                Usage:   open <taskId>
+                Usage:   open <taskOrdinal>
                 Example: open 1
                 """;
     }

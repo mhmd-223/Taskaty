@@ -16,7 +16,7 @@ public class CreatingListCommand extends Command {
 
     @Override
     public boolean execute(User user, List<String> args) {
-        String listTitle = args.remove(0);
+        String listTitle = removeQuotes(args.remove(0));
         if (listTitle.contains("=")) {
             setErrorMessage(Errors.INVALID_LIST_NAME.formatted(listTitle));
             return false;
@@ -30,7 +30,7 @@ public class CreatingListCommand extends Command {
                     return false;
                 }
                 String[] pair = arg.split("=");
-                Detail detail = new Detail(pair[0], pair[1], null);
+                Detail detail = new Detail(pair[0], removeQuotes(pair[1]), null);
                 details.add(detail);
             }
         }
@@ -45,9 +45,9 @@ public class CreatingListCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command enables users to create a new task list.
-                Users need to provide a title for the list, and they can optionally
-                include additional details or descriptions for the list.
+                newlist:  This command enables users to create a new task list.
+                          Users need to provide a title for the list, and they can optionally
+                          include additional details or descriptions for the list.
                 """;
     }
 

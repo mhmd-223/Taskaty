@@ -10,15 +10,11 @@ public class ListPage extends Page {
         configureContent();
     }
 
-    @Override
-    public String prompt() {
-        return null;
-    }
 
     @Override
     protected void configureContent() {
-        String tasks = showMenu(list.getTitle(), "No tasks to show.", list.getTasks(), ConsoleColors.WHITE_BOLD);
-        String details = showMenu("Details", "You didn't set any details to this list.", list.getDetails(), ConsoleColors.WHITE_BOLD);
+        String tasks = showMenu(list.getTitle(), "No tasks to show.", list.getTasks());
+        String details = showMenu("Details", "You didn't set any details to this list.", list.getDetails());
         content = tasks + details;
     }
 

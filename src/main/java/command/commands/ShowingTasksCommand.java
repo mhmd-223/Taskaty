@@ -28,17 +28,17 @@ public class ShowingTasksCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command displays all the tasks in a specific list.
-                Users need to provide the name of the list they want to view,
-                and the command will present the tasks along with their IDs, titles, and other details.
+                showtasks:  This command displays all the tasks in a specific list.
+                            Users need to provide the ordinal of the list they want to view,
+                            and the command will present the tasks along with their IDs, titles, and other details.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """
-                Usage:   showtasks "<listName>"
-                Example: showtasks "Today"
+                Usage:   showtasks <ListOrdinal>
+                Example: showtasks 1
                 """;
     }
 }

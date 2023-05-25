@@ -33,8 +33,9 @@ public class TaskBuilder {
         return this;
     }
 
-    public void setUserId(String userId) {
+    public TaskBuilder setUserId(String userId) {
         this.userId = userId;
+        return this;
     }
 
     public Task createTask() {

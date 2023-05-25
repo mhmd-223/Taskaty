@@ -2,6 +2,7 @@ package command.commands;
 
 import entity.Task;
 import entity.User;
+import ui.ConsoleColors;
 
 import java.util.List;
 
@@ -28,8 +29,9 @@ public class DeletingTaskCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command allows users to delete a task from their task list.
-                Users need to provide the ID of the task they want to remove, and the system will permanently delete it.
+                deletetask:  This command allows users to delete a task from their task list.
+                             Users need to provide the ID of the task they want to remove,which is the ordinal of it on HOMEPAGE,
+                             and the system will permanently delete it.
                 """;
     }
 

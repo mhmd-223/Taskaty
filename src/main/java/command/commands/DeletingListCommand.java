@@ -2,6 +2,7 @@ package command.commands;
 
 import entity.TaskList;
 import entity.User;
+import ui.ConsoleColors;
 
 import java.util.List;
 
@@ -28,17 +29,17 @@ public class DeletingListCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command deletes an existing task list.
-                Users need to specify the name of the list they want to delete,
-                and the system will permanently remove it along with all the tasks it contains.
+                deletelist:  This command deletes an existing task list.
+                             Users need to specify the ordinal of the list as they appear on HOMEPAGE,
+                             and the system will permanently remove it along with all the tasks it contains.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """  
-                Usage:   deletelist "<listName>"
-                Example: deletelist "Personal"
+                Usage:   deletelist <listOrdinal>
+                Example: deletelist 1
                 """;
     }
 }

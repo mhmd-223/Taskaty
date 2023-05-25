@@ -3,10 +3,12 @@ package command.commands;
 import command.parsingandvalidation.Errors;
 import entity.User;
 import service.Registration;
+import ui.Homepage;
+import ui.Page;
 
 import java.util.List;
 
-public class CreatingAccountCommand extends Command{
+public class CreatingAccountCommand extends Command {
 
     public CreatingAccountCommand() {
         super(2, false);
@@ -14,8 +16,8 @@ public class CreatingAccountCommand extends Command{
 
     @Override
     public boolean execute(User user, List<String> args) {
-        user.setName(args.get(0));
-        user.setUsername(args.get(1));
+        user.setName(removeQuotes(args.get(0)));
+        user.setUsername(removeQuotes(args.get(1)));
         Registration registration = new Registration(userService);
         if (!registration.registerUser(user)) {
             if (registration.isExists())
@@ -23,22 +25,25 @@ public class CreatingAccountCommand extends Command{
             setErrorMessage("Failed to register a new account.");
             return false;
         }
+        Page page = new Homepage(user);
+        page.refresh();
         return true;
     }
 
     @Override
     public String getDescription() {
         return """
-                This command creates a new user account.
-                Users need to provide their name, a unique username and a secure password to register their account.
+                newuser:  This command creates a new user account.
+                          Users need to provide their name and a unique username.
+                          Then they will be prompted to provide a password.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """
-                Usage:   newuser "<name>" "<username>" "<password>"
-                Example: newuser "Muhammad" "mhmd" "securepassword"
+                Usage:   newuser "<name>" "<username>"
+                Example: newuser "Muhammad" "mhmd"
                 """;
     }
 }

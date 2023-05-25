@@ -33,8 +33,8 @@ public class LoginCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                The login command is used to authenticate and log in to your user account in Taskaty.
-                After providing your username, you will be prompted to securely type your password.
+                login:  The login command is used to authenticate and log in to your user account in Taskaty.
+                        After providing your username, you will be prompted to securely type your password.
                 """;
     }
 

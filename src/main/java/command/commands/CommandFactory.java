@@ -8,7 +8,7 @@ public class CommandFactory {
 
     static {
         commands.put("addtask", AddingTaskCommand.class);
-        commands.put("edittask", EditingListCommand.class);
+        commands.put("edittask", EditingTaskCommand.class);
         commands.put("move", MovingTaskCommand.class);
         commands.put("showtasks", ShowingTasksCommand.class);
         commands.put("complete", MarkingCompletedCommand.class);

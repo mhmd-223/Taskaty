@@ -9,12 +9,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="112df84a-598d-402a-8207-59158655ea10" name="Changes" comment="">
+    <list default="true" id="112df84a-598d-402a-8207-59158655ea10" name="Changes" comment="Last Touches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeletingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeletingListCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeletingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeletingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/ExitingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/ExitingCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/HomepageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/HomepageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/LoggingOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/LoggingOutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MovingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MovingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/OpeningTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/OpeningTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/ShowingTasksCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/ShowingTasksCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/parsingandvalidation/ArgumentCountValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/parsingandvalidation/ArgumentCountValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Detail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/TaskBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/TaskBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLDetailsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLDetailsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLTaskRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLTaskRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/DetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/DetailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/ListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/ListPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/TaskPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/TaskPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,11 +56,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -47,6 +72,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/repository/mysql/MySQLListRepo.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/utilities/EasyScanner.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../../../../JAVA Projects/DSA in Java book 6th ed/libs/mysql-connector-j-8.0.32.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,15 +92,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "A:/JAVA Projects/DSA in Java book 6th ed/libs/mysql-connector-j-8.0.32.jar",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;A:/JAVA Projects/DSA in Java book 6th ed/libs/mysql-connector-j-8.0.32.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\database project\Taskaty\src\main\java\repository" />
@@ -135,6 +161,14 @@
       <workItem from="1684853965065" duration="18378000" />
       <workItem from="1684875264634" duration="15175000" />
     </task>
+    <task id="LOCAL-00001" summary="Last Touches">
+      <created>1684964172018</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684964172018</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,31 +185,21 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Last Touches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last Touches" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
+        <breakpoint type="java-exception">
           <properties class="java.lang.RuntimeException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/repository/MySQLConfigure.java</url>
           <line>18</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/TaskService.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java</url>
-          <line>17</line>
-          <properties class="command.commands.LoginCommand" method="execute">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

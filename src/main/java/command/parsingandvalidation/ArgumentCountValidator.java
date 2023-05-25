@@ -1,6 +1,7 @@
 package command.parsingandvalidation;
 
 import command.commands.Command;
+import command.commands.EditingTaskCommand;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class ArgumentCountValidator extends CommandValidator {
         }
 
         int mandatoryCount = (int) args.stream().filter(arg -> !arg.contains("=")).count();
+        if (command instanceof EditingTaskCommand) mandatoryCount = args.size();
         if (expectedCount != mandatoryCount) {
             setErrorMessage(Errors.INVALID_ARGUMENTS_COUNT.formatted(parsedCommand.tag(), expectedCount, mandatoryCount));
             return false;

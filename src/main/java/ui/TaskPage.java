@@ -11,20 +11,16 @@ public class TaskPage extends Page {
     }
 
     @Override
-    public String prompt() {
-        return null;
-    }
-
-    @Override
     protected void configureContent() {
         content = """
                 %s%s%s
+                                
                 \t%s
                 """.formatted(
                 ConsoleColors.CYAN_BOLD,
                 task.getTitle(),
                 ConsoleColors.RESET,
-                task.getDescription() == null ? "" : task.getDescription());
+                task.getDescription().equals("null") ? "No description added." : task.getDescription());
     }
 
     @Override

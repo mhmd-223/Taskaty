@@ -8,10 +8,6 @@ public class LaunchingPage extends Page {
         configureContent();
     }
 
-    @Override
-    public String prompt() {
-        return ConsoleIO.readLine(">> ");
-    }
 
     @Override
     protected void configureContent() {

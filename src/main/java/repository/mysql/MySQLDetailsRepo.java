@@ -46,7 +46,6 @@ public class MySQLDetailsRepo implements DetailsRepository {
 
     @Override
     public List<Detail> getDetailsByListId(Long listId) {
-        Connection connection = MySQLConfigure.getConnection();
         //String query = "Select * from Detail where ListId=" + listId;
         String query = new QueryBuilder()
                 .select("*")

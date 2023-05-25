@@ -23,8 +23,8 @@ public class HomepageCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command takes users back to the home screen or the main menu of Taskaty.
-                It provides a central starting point for accessing various commands and features.
+                home:  This command takes users back to the home screen or the main menu of Taskaty.
+                       It provides a central starting point for accessing various commands and features.
                 """;
     }
 

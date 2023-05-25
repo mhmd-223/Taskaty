@@ -56,21 +56,7 @@ public abstract class Command {
         this.errorMessage = errorMessage;
     }
 
-    protected Map<String, String> getArgsValues(List<String> args) {
-        Map<String, String> argsValues = new HashMap<>();
-        for (String arg : args) {
-            if (arg.contains("=")) {
-                String[] pair = arg.split("=");
-                String key = pair[0], value = pair[1];
-                if (!key.startsWith("desc") || !key.equals("title")) {
-                    setErrorMessage(Errors.UNSUPPORTED_PROPERTY.formatted(key));
-                    return null;
-                }
-                argsValues.put("desc", value.substring(1, value.length() - 1));
-            } else argsValues.put("title", arg.substring(1, arg.length() - 1));
-        }
-        return argsValues;
-    }
+
 
     protected <E> Integer validateId(List<String> args, List<E> tasks) {
         if (!args.get(0).chars().allMatch(Character::isDigit)) {
@@ -99,5 +85,11 @@ public abstract class Command {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    protected String removeQuotes(String quoted) {
+        if (!quoted.contains("\""))
+            return quoted;
+        return quoted.substring(1, quoted.length() - 1);
     }
 }

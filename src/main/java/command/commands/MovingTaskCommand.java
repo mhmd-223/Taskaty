@@ -3,6 +3,7 @@ package command.commands;
 import entity.Task;
 import entity.TaskList;
 import entity.User;
+import ui.ConsoleColors;
 
 import java.util.List;
 
@@ -40,16 +41,17 @@ public class MovingTaskCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                With this command, users can move a specific task from one list to another.
-                Users need to provide the ID of the task they want to move and specify the name of the destination list.
+                move:  With this command, users can move a specific task from one list to another.
+                       Users need to provide the ordinal of the task they want to move and specify the ordinal of the destination list.
+                       Ordinals which are displayed on HOMEPAGE
                 """;
     }
 
     @Override
     public String getUsage() {
         return """  
-                Usage:   move <TaskID> "<ListName>"
-                Example: move 1 "In Progress"
+                Usage:   move <TaskOrdinal> <ListOrdinal>
+                Example: move 1 4
                 """;
     }
 }

@@ -28,8 +28,8 @@ public class ExitingCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                This command exits Taskaty and closes command-line interface.
-                It terminates the user's session and ends the interaction with the system.
+                exit:  This command exits Taskaty.
+                       It terminates the user's session and ends the interaction with the system.
                 """;
     }
 

@@ -2,6 +2,7 @@ package command.commands;
 
 import entity.Task;
 import entity.User;
+import ui.ConsoleColors;
 
 import java.util.List;
 
@@ -17,12 +18,13 @@ public class MarkingCompletedCommand extends Command {
         Integer id = validateId(args, tasks);
         if (id == null) return false;
 
-        Task task = tasks.get(id);
+        Task task = tasks.remove(id.intValue());
         task.setCompleted(true);
+        task.setTitle(ConsoleColors.STRIKETHROUGH + task.getTitle() + ConsoleColors.RESET);
         boolean marked = taskService.editTaskInfo(task);
         if (marked)
             return true;
-        setErrorMessage("Failed to mark task " + task + " as completed.");
+        setErrorMessage("Failed to mark task " + task.getTitle() + " as completed.");
         return false;
 
     }
