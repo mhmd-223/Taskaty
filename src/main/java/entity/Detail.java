@@ -55,4 +55,13 @@ public class Detail {
         return Objects.equals(key, detail.key) && Objects.equals(listId, detail.listId);
     }
 
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "key='" + key + '\'' +
+                ", value='" + value + '\'' +
+                ", id=" + id +
+                ", listId=" + listId +
+                '}';
+    }
 }

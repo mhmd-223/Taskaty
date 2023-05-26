@@ -25,9 +25,11 @@ public class DetailService {
         try {
             Detail updated = isExisted(listID, detail);
             if (updated == null)
-                repository.updateDetail(detail);
-            else
                 repository.createDetail(detail);
+            else {
+                detail.setId(updated.getId());
+                repository.updateDetail(detail);
+            }
             return true;
         } catch (RuntimeException e) {
             return false;
@@ -55,9 +57,9 @@ public class DetailService {
         List<Detail> details = getListDetails(listID);
         for (Detail detail : details) {
             if (detail.equals(compared))
-                return null;
+                return detail;
         }
-        return compared;
+        return null;
     }
 
 }

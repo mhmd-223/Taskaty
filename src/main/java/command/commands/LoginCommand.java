@@ -3,6 +3,8 @@ package command.commands;
 import command.parsingandvalidation.Errors;
 import entity.User;
 import service.Authentication;
+import service.Session;
+import ui.Homepage;
 
 import java.util.List;
 
@@ -15,9 +17,9 @@ public class LoginCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        user.setUsername(args.get(0));
-        Authentication authentication = new Authentication(user);
+    public boolean execute(Session session, List<String> args) {
+        session.getUser().setUsername(args.get(0));
+        Authentication authentication = new Authentication(session.getUser());
         if (!authentication.isAuthenticated()) {
             if (authentication.isWrongPassword()) {
                 setErrorMessage(Errors.WRONG_PASSWORD);
@@ -26,7 +28,10 @@ public class LoginCommand extends Command {
             setErrorMessage(Errors.WRONG_USERNAME);
             return false;
         }
-        successfulLoggedUser  = authentication.getUser();
+        User user = authentication.getUser();
+        session.setUser(user);
+        session.refreshUser();
+        session.setPage(new Homepage(user));
         return true;
     }
 

@@ -3,12 +3,14 @@ package ui;
 import entity.Detail;
 import entity.Task;
 import entity.TaskList;
+import entity.User;
 import utilities.ConsoleIO;
 
 import java.util.List;
 
 public abstract class Page {
     protected String content;
+    protected User user;
 
     public void display() {
         System.out.println(content);
@@ -24,10 +26,14 @@ public abstract class Page {
 
     protected abstract void configureContent();
 
-    protected abstract void updateContent();
+    public void updateContent(User user) {
+        this.user = user;
+        configureContent();
+    }
 
     public void refresh() {
         clear();
+        configureContent();
         display();
     }
 

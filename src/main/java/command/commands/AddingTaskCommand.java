@@ -2,10 +2,9 @@ package command.commands;
 
 import entity.Task;
 import entity.TaskBuilder;
-import entity.User;
+import service.Session;
 
 import java.util.List;
-import java.util.Map;
 
 public class AddingTaskCommand extends Command {
 
@@ -14,11 +13,11 @@ public class AddingTaskCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
+    public boolean execute(Session session, List<String> args) {
 
         Task task = new TaskBuilder()
                 .setTitle(removeQuotes(args.get(0)))
-                .setUserId(user.getUsername())
+                .setUserId(session.getUser().getUsername())
                 .createTask();
 
         boolean addingResult = taskService.addTask(task);

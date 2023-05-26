@@ -1,7 +1,6 @@
 package mapper;
 
 import entity.Detail;
-import repository.MySQLConfigure;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DetailsMapper implements DetailsMapperInterface {
-    private final Detail detail = new Detail();
 
     @Override
-    public List<Detail> getDetailsOfList(Connection connection,String query) {
+    public List<Detail> getDetailsOfList(Connection connection, String query) {
         List<Detail> details = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
+                Detail detail = new Detail();
                 detail.setId(resultSet.getLong("id"));
                 detail.setValue(resultSet.getString("value_"));
                 detail.setKey(resultSet.getString("key_"));

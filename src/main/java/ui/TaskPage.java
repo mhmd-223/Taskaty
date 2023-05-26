@@ -1,17 +1,21 @@
 package ui;
 
 import entity.Task;
+import entity.User;
 
 public class TaskPage extends Page {
-    private final Task task;
 
-    public TaskPage(Task task) {
-        this.task = task;
+    private final int taskID;
+
+    public TaskPage(int taskID, User user) {
+        this.taskID = taskID;
+        super.user = user;
         configureContent();
     }
 
     @Override
     protected void configureContent() {
+        Task task = user.getTasks().get(taskID);
         content = """
                 %s%s%s
                                 
@@ -23,8 +27,4 @@ public class TaskPage extends Page {
                 task.getDescription().equals("null") ? "No description added." : task.getDescription());
     }
 
-    @Override
-    protected void updateContent() {
-
-    }
 }

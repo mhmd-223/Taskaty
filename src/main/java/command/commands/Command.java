@@ -1,19 +1,13 @@
 package command.commands;
 
 import command.parsingandvalidation.Errors;
-import entity.User;
 import repository.mysql.MySQLDetailsRepo;
 import repository.mysql.MySQLListRepo;
 import repository.mysql.MySQLTaskRepo;
 import repository.mysql.MySQLUserRepo;
-import service.DetailService;
-import service.ListService;
-import service.TaskService;
-import service.UserService;
+import service.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public abstract class Command {
 
@@ -42,7 +36,7 @@ public abstract class Command {
         return optionalArgsAllowed;
     }
 
-    public abstract boolean execute(User user, List<String> args);
+    public abstract boolean execute(Session session, List<String> args);
 
     public abstract String getDescription();
 
@@ -55,7 +49,6 @@ public abstract class Command {
     protected void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }
-
 
 
     protected <E> Integer validateId(List<String> args, List<E> tasks) {

@@ -3,8 +3,7 @@ package command.commands;
 import command.parsingandvalidation.Errors;
 import entity.Detail;
 import entity.TaskList;
-import entity.User;
-import ui.ConsoleColors;
+import service.Session;
 
 import java.util.List;
 
@@ -16,8 +15,8 @@ public class EditingListCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<TaskList> lists = user.getTaskLists();
+    public boolean execute(Session session, List<String> args) {
+        List<TaskList> lists = session.getUser().getTaskLists();
         Integer id = validateId(args, lists);
         if (id == null)
             return false;
@@ -44,7 +43,7 @@ public class EditingListCommand extends Command {
     @Override
     public String getDescription() {
         return """
-                editdetail:  This command allows users to edit the details of an existing list.
+                editdetail:  This command allows users to edit the details of an existing list, if this detail does not exist, a new detail will be created.
                              Users need to specify the ordinal of the list on HOMEPAGE they want to modify
                              and provide the updated detail along with its value.
                 """;

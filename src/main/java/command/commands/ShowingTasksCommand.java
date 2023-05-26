@@ -1,9 +1,8 @@
 package command.commands;
 
 import entity.TaskList;
-import entity.User;
+import service.Session;
 import ui.ListPage;
-import ui.Page;
 
 import java.util.List;
 
@@ -14,13 +13,12 @@ public class ShowingTasksCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<TaskList> lists = user.getTaskLists();
+    public boolean execute(Session session, List<String> args) {
+        List<TaskList> lists = session.getUser().getTaskLists();
         Integer listID = validateId(args, lists);
         if (listID == null)
             return false;
-        Page listPage = new ListPage(lists.get(listID));
-        listPage.refresh();
+        session.setPage(new ListPage(listID, session.getUser()));
         return true;
 
     }

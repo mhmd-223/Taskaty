@@ -1,40 +1,26 @@
 package command.commands;
 
 import command.parsingandvalidation.Errors;
-import entity.Detail;
 import entity.TaskList;
-import entity.User;
+import service.Session;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CreatingListCommand extends Command {
 
     public CreatingListCommand() {
-        super(1, true);
+        super(1, false);
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
+    public boolean execute(Session session, List<String> args) {
         String listTitle = removeQuotes(args.remove(0));
         if (listTitle.contains("=")) {
             setErrorMessage(Errors.INVALID_LIST_NAME.formatted(listTitle));
             return false;
         }
-        // Todo HOW TO ADD LIST ID TO EACH DETAIL
-        List<Detail> details = new ArrayList<>();
-        if (!args.isEmpty()) {
-            for (String arg : args) {
-                if (!arg.contains("=")) {
-                    setErrorMessage(Errors.MISSING_PROPERTY_NAME.formatted(arg));
-                    return false;
-                }
-                String[] pair = arg.split("=");
-                Detail detail = new Detail(pair[0], removeQuotes(pair[1]), null);
-                details.add(detail);
-            }
-        }
-        TaskList list = new TaskList(null, listTitle, user.getUsername(), null, details);
+
+        TaskList list = new TaskList(null, listTitle, session.getUser().getUsername(), null, null);
         boolean creationResult = listService.addList(list);
         if (creationResult)
             return true;
@@ -46,16 +32,15 @@ public class CreatingListCommand extends Command {
     public String getDescription() {
         return """
                 newlist:  This command enables users to create a new task list.
-                          Users need to provide a title for the list, and they can optionally
-                          include additional details or descriptions for the list.
+                          Users need to provide a title for the list.
                 """;
     }
 
     @Override
     public String getUsage() {
         return """
-                Usage:   newlist "<Title>" [detail="Details"] [...]
-                Example: newlist "Work Projects" detail="Important projects for Q2"
+                Usage:   newlist "<Title>"
+                Example: newlist "Work Projects"
                 """;
     }
 }

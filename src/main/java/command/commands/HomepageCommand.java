@@ -1,6 +1,6 @@
 package command.commands;
 
-import entity.User;
+import service.Session;
 import ui.Homepage;
 import ui.Page;
 
@@ -13,11 +13,9 @@ public class HomepageCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        Page homepage = new Homepage(user);
-        homepage.refresh();
+    public boolean execute(Session session, List<String> args) {
+        session.setPage(new Homepage(session.getUser()));
         return true;
-
     }
 
     @Override

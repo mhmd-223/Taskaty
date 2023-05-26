@@ -1,8 +1,7 @@
 package command.commands;
 
 import entity.TaskList;
-import entity.User;
-import ui.ConsoleColors;
+import service.Session;
 
 import java.util.List;
 
@@ -13,8 +12,8 @@ public class DeletingListCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<TaskList> lists = user.getTaskLists();
+    public boolean execute(Session session, List<String> args) {
+        List<TaskList> lists = session.getUser().getTaskLists();
         Integer ordinal = validateId(args, lists);
         if (ordinal == null)
             return false;
@@ -22,8 +21,7 @@ public class DeletingListCommand extends Command {
         if (deletionResult)
             return true;
         setErrorMessage("Failed to delete " + lists.get(ordinal).getTitle() + " list.");
-        return true;
-
+        return false;
     }
 
     @Override

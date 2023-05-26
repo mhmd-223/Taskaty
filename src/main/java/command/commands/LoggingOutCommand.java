@@ -1,6 +1,6 @@
 package command.commands;
 
-import entity.User;
+import service.Session;
 import ui.LaunchingPage;
 import ui.Page;
 
@@ -13,9 +13,8 @@ public class LoggingOutCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        Page launchingPage = new LaunchingPage();
-        launchingPage.display();
+    public boolean execute(Session session, List<String> args) {
+        session.setPage(new LaunchingPage());
         return true;
 
     }

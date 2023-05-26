@@ -41,7 +41,7 @@ public class MySQLListRepo implements ListRepository {
         MySQLTaskRepo taskWithList = new MySQLTaskRepo();
         List<Task> list1 = taskWithList.getTasksByListID(taskListId);
         for (Task task1 : list1) {
-            task1.setListId(null);
+            task1.setListId(0L);
             taskWithList.updateTask(task1);
         }
         String deleteQuery = new QueryBuilder()

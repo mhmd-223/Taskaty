@@ -1,7 +1,5 @@
 package ui;
 
-import utilities.ConsoleIO;
-
 public class LaunchingPage extends Page {
 
     public LaunchingPage() {
@@ -28,8 +26,4 @@ public class LaunchingPage extends Page {
                 """.formatted(ConsoleColors.BLUE_BOLD, ConsoleColors.RESET, ConsoleColors.CYAN_BOLD, ConsoleColors.RESET);
     }
 
-    @Override
-    protected void updateContent() {
-
-    }
 }

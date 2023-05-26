@@ -1,7 +1,7 @@
 package command.commands;
 
 import entity.Task;
-import entity.User;
+import service.Session;
 import ui.ConsoleColors;
 
 import java.util.List;
@@ -13,8 +13,8 @@ public class MarkingCompletedCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<Task> tasks = user.getTasks();
+    public boolean execute(Session session, List<String> args) {
+        List<Task> tasks = session.getUser().getTasks();
         Integer id = validateId(args, tasks);
         if (id == null) return false;
 

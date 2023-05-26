@@ -1,6 +1,6 @@
 package command.commands;
 
-import entity.User;
+import service.Session;
 import utilities.ConsoleIO;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public class ExitingCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
+    public boolean execute(Session session, List<String> args) {
         ConsoleIO.printDocumentation("""
                                 
                 Thank you for using Taskaty! Remember, every completed task brings you closer to your goals. See you next time!

@@ -3,8 +3,7 @@ package command.commands;
 import command.parsingandvalidation.Errors;
 import entity.User;
 import service.Registration;
-import ui.Homepage;
-import ui.Page;
+import service.Session;
 
 import java.util.List;
 
@@ -15,7 +14,8 @@ public class CreatingAccountCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
+    public boolean execute(Session session, List<String> args) {
+        User user = session.getUser();
         user.setName(removeQuotes(args.get(0)));
         user.setUsername(removeQuotes(args.get(1)));
         Registration registration = new Registration(userService);
@@ -25,8 +25,6 @@ public class CreatingAccountCommand extends Command {
             setErrorMessage("Failed to register a new account.");
             return false;
         }
-        Page page = new Homepage(user);
-        page.refresh();
         return true;
     }
 

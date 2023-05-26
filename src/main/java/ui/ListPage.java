@@ -1,26 +1,24 @@
 package ui;
 
 import entity.TaskList;
+import entity.User;
 
 public class ListPage extends Page {
-    private final TaskList list;
+    private final Integer listID;
 
-    public ListPage(TaskList list) {
-        this.list = list;
+    public ListPage(Integer listID, User user) {
+        this.listID = listID;
+        super.user = user;
         configureContent();
     }
 
 
     @Override
     protected void configureContent() {
+        TaskList list = user.getTaskLists().get(listID);
         String tasks = showMenu(list.getTitle(), "No tasks to show.", list.getTasks());
         String details = showMenu("Details", "You didn't set any details to this list.", list.getDetails());
         content = tasks + details;
     }
 
-
-    @Override
-    protected void updateContent() {
-
-    }
 }

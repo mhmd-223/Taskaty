@@ -3,14 +3,12 @@ package service;
 import entity.User;
 import repository.mysql.MySQLListRepo;
 import repository.mysql.MySQLTaskRepo;
-import ui.Homepage;
-import ui.LaunchingPage;
 import ui.Page;
 
 public class Session {
     private User user;
     private boolean loggedIn;
-
+    private Page page;
     private TaskService taskService;
     private ListService listService;
 
@@ -21,20 +19,18 @@ public class Session {
     }
 
     public Session() {
+        this(null);
     }
 
     public void start() {
         loggedIn = true;
         user.setTasks(taskService.getAllTasks(user.getUsername()));
         user.setTaskLists(listService.getLists(user.getUsername()));
-        Page homePage = new Homepage(user);
-        homePage.refresh();
+        page.updateContent(user);
     }
 
     public void end() {
         loggedIn = false;
-        Page launchingPage = new LaunchingPage();
-        launchingPage.display();
     }
 
     public boolean isLoggedIn() {
@@ -52,8 +48,21 @@ public class Session {
     public User getUser() {
         return user;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public void refreshUser() {
         user.setTasks(taskService.getAllTasks(user.getUsername()));
         user.setTaskLists(listService.getLists(user.getUsername()));
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
     }
 }

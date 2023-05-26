@@ -1,7 +1,7 @@
 package command.commands;
 
 import command.parsingandvalidation.Errors;
-import entity.User;
+import service.Session;
 import utilities.ConsoleIO;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public class HelpCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
+    public boolean execute(Session session, List<String> args) {
         Command command;
         if (args.isEmpty()) {
             for (Class<? extends Command> value : CommandFactory.getCommands().values()) {

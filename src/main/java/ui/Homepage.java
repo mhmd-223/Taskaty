@@ -7,20 +7,26 @@ import entity.User;
 import java.util.List;
 
 public class Homepage extends Page {
-    private final List<Task> tasks;
-    private final String name;
-    private final List<TaskList> taskLists;
+    private List<Task> tasks;
+    private String name;
+    private List<TaskList> taskLists;
 
     public Homepage(User user) {
+        super.user = user;
+        initialize();
+        configureContent();
+    }
+
+    private void initialize() {
         tasks = user.getTasks();
         name = user.getName();
-        this.taskLists = user.getTaskLists();
-        configureContent();
+        taskLists = user.getTaskLists();
     }
 
 
     @Override
     protected void configureContent() {
+        initialize();
         String welcoming = """
                 Welcome back, %s%s%s!
                                 
@@ -34,9 +40,4 @@ public class Homepage extends Page {
         content = welcoming + tasksMenu + listMenu;
     }
 
-
-    @Override
-    protected void updateContent() {
-
-    }
 }

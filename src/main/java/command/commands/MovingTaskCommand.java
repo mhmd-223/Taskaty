@@ -2,8 +2,7 @@ package command.commands;
 
 import entity.Task;
 import entity.TaskList;
-import entity.User;
-import ui.ConsoleColors;
+import service.Session;
 
 import java.util.List;
 
@@ -14,9 +13,9 @@ public class MovingTaskCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<Task> tasks = user.getTasks();
-        List<TaskList> lists = user.getTaskLists();
+    public boolean execute(Session session, List<String> args) {
+        List<Task> tasks = session.getUser().getTasks();
+        List<TaskList> lists = session.getUser().getTaskLists();
 
         Integer taskID = validateId(args, tasks);
         if (taskID == null)

@@ -44,6 +44,7 @@ public class ListService {
             repository.deleteTaskList(listID);
             return true;
         } catch (RuntimeException e) {
+            e.printStackTrace();
             return false;
         }
     }

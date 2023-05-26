@@ -2,7 +2,8 @@ package command.commands;
 
 import command.parsingandvalidation.Errors;
 import entity.Task;
-import entity.User;
+import service.Session;
+import ui.ConsoleColors;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,17 +16,18 @@ public class EditingTaskCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<Task> tasks = user.getTasks();
+    public boolean execute(Session session, List<String> args) {
+        List<Task> tasks = session.getUser().getTasks();
         Integer id = validate(args, tasks);
         if (id == null) return false;
 
         Map<String, String> argsValues = getArgsValues(args);
         Task task = tasks.get(id);
         for (String property : argsValues.keySet()) {
-            if (property.equals("title"))
-                task.setTitle(argsValues.get(property));
-            else if (property.startsWith("desc"))
+            if (property.equals("title")) {
+                String completed = ConsoleColors.STRIKETHROUGH + argsValues.get(property) + ConsoleColors.RESET;
+                task.setTitle(task.isCompleted() ? completed : argsValues.get(property));
+            } else if (property.startsWith("desc"))
                 task.setDescription(argsValues.get(property));
             else {
                 setErrorMessage(Errors.UNSUPPORTED_PROPERTY.formatted(property));
@@ -64,6 +66,7 @@ public class EditingTaskCommand extends Command {
         }
         return argsValues;
     }
+
     @Override
     public String getDescription() {
         return """

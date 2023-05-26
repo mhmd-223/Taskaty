@@ -1,8 +1,7 @@
 package command.commands;
 
 import entity.Task;
-import entity.User;
-import ui.ConsoleColors;
+import service.Session;
 
 import java.util.List;
 
@@ -14,8 +13,8 @@ public class DeletingTaskCommand extends Command {
 
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<Task> tasks = user.getTasks();
+    public boolean execute(Session session, List<String> args) {
+        List<Task> tasks = session.getUser().getTasks();
         Integer id = validateId(args, tasks);
         if (id == null)
             return false;

@@ -1,9 +1,7 @@
 package command.commands;
 
 import entity.Task;
-import entity.TaskList;
-import entity.User;
-import ui.Page;
+import service.Session;
 import ui.TaskPage;
 
 import java.util.List;
@@ -15,12 +13,11 @@ public class OpeningTaskCommand extends Command {
     }
 
     @Override
-    public boolean execute(User user, List<String> args) {
-        List<Task> tasks = user.getTasks();
+    public boolean execute(Session session, List<String> args) {
+        List<Task> tasks = session.getUser().getTasks();
         Integer providedID = validateId(args, tasks);
         if (providedID == null) return false;
-        Page taskPage = new TaskPage(tasks.get(providedID));
-        taskPage.refresh();
+        session.setPage(new TaskPage(providedID, session.getUser()));
         return true;
 
     }
