@@ -22,7 +22,8 @@ public class CreatingAccountCommand extends Command {
         if (!registration.registerUser(user)) {
             if (registration.isExists())
                 setErrorMessage(Errors.DUPLICATED_USERNAME);
-            setErrorMessage("Failed to register a new account.");
+            else
+                setErrorMessage("Failed to register a new account.");
             return false;
         }
         return true;

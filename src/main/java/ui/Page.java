@@ -12,7 +12,7 @@ public abstract class Page {
     protected String content;
     protected User user;
 
-    public void display() {
+    private void display() {
         System.out.println(content);
     }
 
@@ -35,10 +35,6 @@ public abstract class Page {
         clear();
         configureContent();
         display();
-    }
-
-    protected String getContent() {
-        return content;
     }
 
     protected <E> String showMenu(String headline, String empty, List<E> items) {

@@ -40,7 +40,6 @@ public class Manager {
 
     private void login(Command command) {
         readPassword(command);
-//        user = ((LoginCommand) command).getSuccessfulLoggedUser();
         /* Successful login */
         runSession();
     }
@@ -80,7 +79,7 @@ public class Manager {
         session.start();
         session.getPage().refresh();
         while (session.isLoggedIn()) {
-            String commandInput = ConsoleIO.readLine(">> ");
+            String commandInput = page.prompt();
             Command handledCommand = handler.parseAndValidate(commandInput);
             if (handledCommand == null) {
                 ConsoleIO.printError(handler.getErrorMessage());
@@ -89,6 +88,10 @@ public class Manager {
             if (handledCommand instanceof LoggingOutCommand) {
                 session.end();
                 App.main(null);
+            }
+            if (handledCommand instanceof CreatingAccountCommand || handledCommand instanceof LoginCommand) {
+                ConsoleIO.printError("You must logout to perform this command.");
+                continue;
             }
             ExecutionResult executionResult = CommandExecutor.executeCommand(handledCommand, handler.getArgs(), session);
             if (!executionResult.isSuccess()) {
@@ -99,7 +102,7 @@ public class Manager {
             session.getPage().updateContent(session.getUser());
             if (!(handledCommand instanceof HelpCommand))
                 session.getPage().refresh();
-            ConsoleIO.printSuccessfulOperation("Successful operation");
+            ConsoleIO.printSuccessfulOperation("Successful Operation");
         }
     }
 

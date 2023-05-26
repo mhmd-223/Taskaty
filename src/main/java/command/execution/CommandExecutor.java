@@ -11,7 +11,7 @@ public class CommandExecutor {
     }
 
     public static ExecutionResult executeCommand(Command command, List<String> args, Session session) {
-        boolean status = command.execute(session,args);
+        boolean status = command.execute(session, args);
         if (status)
             return ExecutionResult.success();
         else

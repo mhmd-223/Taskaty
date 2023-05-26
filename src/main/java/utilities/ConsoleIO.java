@@ -35,7 +35,13 @@ public class ConsoleIO {
     }
 
     public static String readLine(String prompt) {
-        return consoleRead(prompt);
+
+        String read = null;
+
+        while (read == null || read.isEmpty() || read.isBlank())
+            read = consoleRead(prompt);
+
+        return read;
     }
 
     private static void print(String s) {

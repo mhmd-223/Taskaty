@@ -10,39 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="112df84a-598d-402a-8207-59158655ea10" name="Changes" comment="Last Touches">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Taskaty_jar/Taskaty.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Taskaty_jar/Taskaty.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeletingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeletingListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeletingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeletingTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/ExitingCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/ExitingCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/HomepageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/HomepageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/LoggingOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/LoggingOutCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/LoginCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeleteDetailCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeleteDetailCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MovingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MovingTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/OpeningTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/OpeningTaskCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/ShowingTasksCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/ShowingTasksCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/execution/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/execution/CommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Detail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Detail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/DetailsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/DetailsMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLListRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/mysql/MySQLListRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/DetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/DetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/ListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/ListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/ListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/ListPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ui/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/TaskPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/TaskPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

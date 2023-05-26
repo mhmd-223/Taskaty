@@ -19,6 +19,10 @@ public class MarkingCompletedCommand extends Command {
         if (id == null) return false;
 
         Task task = tasks.remove(id.intValue());
+        if (task.isCompleted()) {
+            setErrorMessage("Task is already completed.");
+            return false;
+        }
         task.setCompleted(true);
         task.setTitle(ConsoleColors.STRIKETHROUGH + task.getTitle() + ConsoleColors.RESET);
         boolean marked = taskService.editTaskInfo(task);

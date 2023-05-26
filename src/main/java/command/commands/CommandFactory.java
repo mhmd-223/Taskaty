@@ -23,6 +23,7 @@ public class CommandFactory {
         commands.put("home", HomepageCommand.class);
         commands.put("exit", ExitingCommand.class);
         commands.put("help", HelpCommand.class);
+        commands.put("deletedetail", DeleteDetailCommand.class);
     }
 
     public static Command createCommand(String tag) {
