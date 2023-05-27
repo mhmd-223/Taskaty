@@ -20,7 +20,11 @@ public class ExitingCommand extends Command {
                                 
                 - The Taskaty Team
                 """);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ignored) {
 
+        }
         System.exit(0);
         return true;
     }

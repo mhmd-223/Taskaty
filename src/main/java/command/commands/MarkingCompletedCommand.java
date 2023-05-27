@@ -18,7 +18,7 @@ public class MarkingCompletedCommand extends Command {
         Integer id = validateId(args, tasks);
         if (id == null) return false;
 
-        Task task = tasks.remove(id.intValue());
+        Task task = tasks.get(id);
         if (task.isCompleted()) {
             setErrorMessage("Task is already completed.");
             return false;
