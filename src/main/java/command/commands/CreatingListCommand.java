@@ -3,6 +3,7 @@ package command.commands;
 import command.parsingandvalidation.Errors;
 import entity.TaskList;
 import service.Session;
+import utilities.StringUtils;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class CreatingListCommand extends Command {
 
     @Override
     public boolean execute(Session session, List<String> args) {
-        String listTitle = removeQuotes(args.remove(0));
+        String listTitle = StringUtils.removeQuotes(args.remove(0));
         if (listTitle.contains("=")) {
             setErrorMessage(Errors.INVALID_LIST_NAME.formatted(listTitle));
             return false;

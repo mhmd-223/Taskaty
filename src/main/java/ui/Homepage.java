@@ -3,6 +3,7 @@ package ui;
 import entity.Task;
 import entity.TaskList;
 import entity.User;
+import utilities.StringUtils;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class Homepage extends Page {
                                 
                 Time to conquer your tasks and make every moment count with Taskaty.
                                 
-                """.formatted(ConsoleColors.PURPLE_BOLD, name, ConsoleColors.RESET);
+                """.formatted(ConsoleColors.PURPLE_BOLD, StringUtils.titleCase(name), ConsoleColors.RESET);
 
         String tasksMenu = showMenu("Your Tasks", "No tasks to show.", tasks);
         String listMenu = showMenu("Your Lists", "No lists to show.", taskLists);

@@ -17,7 +17,7 @@ public class LaunchingPage extends Page {
                 With Taskaty, you can manage your tasks, projects, and deadlines effortlessly. Stay on top of your to-do lists, track your progress, and celebrate your achievements along the way.
 
                 To get started, please choose one of the following options:
-                	- To log in, type: login <username>
+                    - To log in, type: login <username>
                     - To register a new account, type: newuser <name> <username>
 
                 Thank you for choosing Taskaty. Let's embark on this productivity journey together and make every day count!

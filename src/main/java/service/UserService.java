@@ -9,7 +9,7 @@ import utilities.PasswordHashing;
  * Same as TaskService but for users.
  */
 public class UserService {
-    private UserRepository repository;
+    private final UserRepository repository;
 
     public UserService(UserRepository repository) {
         this.repository = repository;

@@ -4,6 +4,8 @@ import command.parsingandvalidation.Errors;
 import entity.User;
 import service.Registration;
 import service.Session;
+import ui.Homepage;
+import utilities.StringUtils;
 
 import java.util.List;
 
@@ -16,8 +18,8 @@ public class CreatingAccountCommand extends Command {
     @Override
     public boolean execute(Session session, List<String> args) {
         User user = session.getUser();
-        user.setName(removeQuotes(args.get(0)));
-        user.setUsername(removeQuotes(args.get(1)));
+        user.setName(StringUtils.removeQuotes(args.get(0)));
+        user.setUsername(StringUtils.removeQuotes(args.get(1)));
         Registration registration = new Registration(userService);
         if (!registration.registerUser(user)) {
             if (registration.isExists())
@@ -26,6 +28,7 @@ public class CreatingAccountCommand extends Command {
                 setErrorMessage("Failed to register a new account.");
             return false;
         }
+        session.setPage(new Homepage(user));
         return true;
     }
 

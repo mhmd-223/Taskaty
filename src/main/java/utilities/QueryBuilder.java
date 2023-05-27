@@ -3,7 +3,7 @@ package utilities;
 import java.util.Map;
 
 /**
- * This class is responsible for building SQL queries.
+ * This class is responsible for building basic SQL queries.
  */
 public class QueryBuilder {
 
@@ -50,15 +50,6 @@ public class QueryBuilder {
         return this;
     }
 
-    public QueryBuilder orderBy(String column) {
-        query.append(" ORDER BY ").append(column);
-        return this;
-    }
-
-    public QueryBuilder groupBy(String column) {
-        query.append(" GROUP BY ").append(column);
-        return this;
-    }
 
     public String build() {
         return query + ";";

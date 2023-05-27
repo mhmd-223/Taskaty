@@ -4,6 +4,7 @@ import command.parsingandvalidation.Errors;
 import entity.Task;
 import service.Session;
 import ui.ConsoleColors;
+import utilities.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -61,7 +62,7 @@ public class EditingTaskCommand extends Command {
             if (arg.contains("=")) {
                 String[] pair = arg.split("=");
                 String key = pair[0], value = pair[1];
-                argsValues.put(key, removeQuotes(value));
+                argsValues.put(key, StringUtils.removeQuotes(value));
             }
         }
         return argsValues;

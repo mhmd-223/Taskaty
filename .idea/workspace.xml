@@ -10,16 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="112df84a-598d-402a-8207-59158655ea10" name="Changes" comment="Last Touches">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Taskaty_jar/Taskaty.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Taskaty_jar/Taskaty.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CommandFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/AddingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingAccountCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/DeleteDetailCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/DeleteDetailCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/MarkingCompletedCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/execution/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/execution/CommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/CreatingListCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingListCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/commands/EditingTaskCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Attachment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/Homepage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/LaunchingPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/ConsoleIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/EasyScanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utilities/QueryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utilities/QueryBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +58,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/repository/mysql/MySQLListRepo.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/utilities/EasyScanner.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="jar://$PROJECT_DIR$/../../../../../../JAVA Projects/DSA in Java book 6th ed/libs/mysql-connector-j-8.0.32.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -63,6 +69,9 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2QA4F04PNfqRuO8gVxxMMLkITEf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">

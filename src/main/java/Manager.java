@@ -16,8 +16,8 @@ import utilities.ConsoleIO;
 public class Manager {
     private final CommandHandler handler;
     private final Session session;
+    private final User user;
     Page page = new LaunchingPage();
-    private User user;
 
     public Manager() {
         user = new User();

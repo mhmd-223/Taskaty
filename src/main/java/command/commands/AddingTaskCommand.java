@@ -3,6 +3,7 @@ package command.commands;
 import entity.Task;
 import entity.TaskBuilder;
 import service.Session;
+import utilities.StringUtils;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class AddingTaskCommand extends Command {
     public boolean execute(Session session, List<String> args) {
 
         Task task = new TaskBuilder()
-                .setTitle(removeQuotes(args.get(0)))
+                .setTitle(StringUtils.removeQuotes(args.get(0)))
                 .setUserId(session.getUser().getUsername())
                 .createTask();
 

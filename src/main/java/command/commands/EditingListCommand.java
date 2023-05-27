@@ -4,6 +4,7 @@ import command.parsingandvalidation.Errors;
 import entity.Detail;
 import entity.TaskList;
 import service.Session;
+import utilities.StringUtils;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class EditingListCommand extends Command {
                 return false;
             }
             String[] pair = arg.split("=");
-            detail = new Detail(pair[0], removeQuotes(pair[1]), lists.get(id).getId());
+            detail = new Detail(pair[0], StringUtils.removeQuotes(pair[1]), lists.get(id).getId());
             boolean updatingResult = detailService.updateDetail(detail, lists.get(id).getId());
             if (updatingResult)
                 return true;

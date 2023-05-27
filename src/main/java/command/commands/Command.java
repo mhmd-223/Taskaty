@@ -80,9 +80,4 @@ public abstract class Command {
         this.userService = userService;
     }
 
-    protected String removeQuotes(String quoted) {
-        if (!quoted.contains("\""))
-            return quoted;
-        return quoted.substring(1, quoted.length() - 1);
-    }
 }
