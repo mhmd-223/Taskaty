@@ -28,3 +28,12 @@ To run the Taskaty app, you have two options:
    java -jar path/to/Taskaty.jar
    ```
    Replace `path/to/Taskaty.jar` with the actual path to the Taskaty.jar file on your system.
+
+## App Running
+![Taskaty 5_27_2023 4_24_20 PM](https://github.com/mhmd-223/Taskaty/assets/110765366/9e272457-3a18-45e9-90df-6fd411269c8a)
+
+![Taskaty 5_27_2023 4_24_58 PM](https://github.com/mhmd-223/Taskaty/assets/110765366/a688f611-3629-4025-9633-d560aab91c2a)
+
+![Taskaty 5_27_2023 4_25_14 PM](https://github.com/mhmd-223/Taskaty/assets/110765366/c7d074f1-5f36-4b98-bdaf-35450858600a)
+
+![Taskaty 5_27_2023 4_25_26 PM](https://github.com/mhmd-223/Taskaty/assets/110765366/6c26a66f-a8e8-42a4-b597-ef10813ac023)
